@@ -1,0 +1,1 @@
+Turns out, the `selectableItemBackground` was working all along, it was hidden with combination of a `white background` and the `ThemeOverlay.AppCompat.Light` -> so I put the `Light` theme to each row and the ripple was then visible.
