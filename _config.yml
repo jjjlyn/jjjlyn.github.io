@@ -1,49 +1,27 @@
-# Site settings
-title: jjjlyn blog
-url: "https://jjjlyn.github.io"
-baseurl: ""
-description: >
-    jjjlyn blog
-# My information
-email: prize1142@gmail.com
-author: jlyn
-github_username: jjjlyn
+name: "jjjlyn"
+description: "jjjlyn blog"
 
-# Build settings
-plugins:
-  - jekyll-paginate
-  - jekyll-gist
-
-permalink: /blog/:year/:month/:day/:title/
+url: 'https://jjjlyn.github.io' 
+baseurl: ''
 
 markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 highlighter: rouge
+
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+plugins:
+  - jekyll-paginate
 paginate: 10
-paginator_path: "/blog"
-paginate_path: "/blog/page:num/"
+paginate_path: /page-:num
 
-# Collections
-collections:
-    wiki:
-        output: true
-        permalink: /:collection/:path/
+#disqus-id: your-disqus-id
 
-# Comment Service
-disqus:
-  id: jjjlyn 
-  shortname: jlyn
-utterances:
-  repo: jjjlyn/jjjlyn.github.io
-  issue-term: pathname
-  label: Comment
-  branch: master
+source: .
+destination: ./_site
 
-timezone: "Asia/Seoul"
-
-# https://kramdown.gettalong.org/rdoc/Kramdown/Options.html - smart_quotes
-kramdown:
-    smart_quotes: ["apos", "apos", "quot", "quot"]
+sass:
+    style: :compressed
+    sass_dir: assets/css/
