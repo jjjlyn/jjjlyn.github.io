@@ -1,0 +1,132 @@
+---
+layout: post
+title: Sleeping Beauty
+date: 2016-05-28 15:46
+comments: true
+external-url:
+categories: Mathematics
+---
+
+## 1. Gradle Dependencies
+
+### 1.1. Migrate to Android X
+
+### 1.2. Constraint Layout
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.2.1. 장점: Child Layout이  2-3depth로 들어가는 기존 방식과 달리 한 레이아웃으로 화면 전체를 만들 수 있기 때문에 기존 Linear, Relative Layout보다 속도가 빠르다.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.2.2. 단점: id를 기준으로 서로 관계맺고 있기 때문에 하나가 틀어지면 모든 view의 배치를 건드려야 하는 번거로움이 있다. ~~그래서 현업에서는 잘 쓰지 않는다고 함(?)~~
+
+### 1.3. RecyclerView
+
+### 1.4. Android Lifecycle Extensions
+
+### 1.5. MultiDex
+* `Android APK`파일은 `DEX(Dalvik Executable)`파일 형식의 실행 가능 바이트코드 파일을 포함한다. 개별 `.dex`파일은 사용할 수 있는 메서드의 총 갯수가 약 `65000`개 정도로 제한되어 있다. 이 제한을 보통 `64K 참조제한`이라고 한다. `Android Studio` 메뉴에서 `Build > Analyze APK...` 를 선택하면 `.apk` 파일을 구성하는 요소를 자세히 살펴볼 수 있고, 이 제한을 넘어서 더 많은 메서드를 사용하는 데는 2개 이상의 `.dex` 파일이 필요하다. 그래서 2개 이상의 `.dex` 파일을 생성하도록 APK 빌드 프로세스를 구성해야 하며, 이것을 `MultiDex` 구성이라고 한다. Android 앱에서 `MultiDex` 를 사용하는 방법은 3가지의 형태가 있다.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.5.1. Application 클래스를 사용하지 않는 경우(AndroidManifest.xml 에 MultiDexApplication을 등록)
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.5.2. Application 클래스를 사용하는 경우 (AndroidManifest.xml 에 <Application> </Application> 등록)
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.5.3. MultiDexApplication 클래스를 사용하는 경우 (RandomApplication extends MultidexApplication)
+
+### 1.6. Room : Local DB
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.6.1. Jetpack Architecture 중 하나로, 근본적으로는 SQLite를 바탕으로 한다. 그러나 기존 SQLite와 달리 다양한 Annotation을 지원하여 컴파일 시 코드를 자동으로 만들어 줌. LiveData, RxJava와 같은 Observable 형태를 지원하고 MVP, MVVM 과 같은 아키텍쳐 패턴에 쉽게 활용 가능
+* `ORM(Object Relational Mapping)` 라이브러리. Database 의 객체를 `Java` 나 `Kotlin` 객체로 매핑해주는 것. `SQLite`를 추상계층으로 감싸고 있다. 그렇기 때문에 쉽게 db에 접근하여 `SQLite`를 자유롭게 사용가능
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.6.2. 대부분의 경우는 관련 데이터의 조각을 caching 하는 것이었다. 기기가 네트워크에 접속할 수 없을 때 User가 오프라인에서도 컨텐츠를 볼 수 있었다. 사용자가 작성하기 시작한 모든 컨텐츠의 변경 사항은 기기가 다시 네트워크에 연결되면 자동으로 동기화가 이루어진다. (이런 부분까지 Room 이 다 케어 해준다고 함)
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;1.6.3. Abstract Database Class (extends RoomDatabase)
+* `Relational Database` 에 접근할 수 있는 `Access Point`를 제공
+* `@Database` 라는 Annotation 을 Class 에 달아야 하며 다음 조건을 만족해야 함
+	* `RoomDatabase` 를 상속한 `abstract class`여야 함
+	* Database 와 관련된 `Entity` 들을 Annotation의 파라미터값으로 포함시켜야함 
+	*  abstract method를 포함해야 하는데, 이 메소드는 파라미터가 `0`개이며, `return`되는 클래스가 `@Dao` Annotation을 달고 있어야 함
+
+```java
+@Database(version = 1, entities = {Commodity.class})
+abstract public class AppDatabase extends RoomDatabase {
+	abstract public CommodityDao commodityDao();
+...
+}
+```
+* `Singleton` Pattern -> `synchronized` (RoomDatabase 객체를 instance화 하는 비용은 매우 크므로 AppDatabase 객체는 싱글톤으로 얻는 것을 권장)
+```java
+public static AppDatabase getDatabase() {
+        if (INSTANCE != null) {
+            return INSTANCE;
+        }
+
+        synchronized (AppDatabase.class) {
+            if (INSTANCE == null) {
+                INSTANCE = Room.databaseBuilder(NaisApplication.getAppContext(),
+                        AppDatabase.class, DB_NAME)
+                        .allowMainThreadQueries()
+//                        .addMigrations(MIGRATION_1_2)
+                        .build();
+            }
+        }
+
+        return INSTANCE;
+    }
+```
+* `Entity` : Database Table
+```java
+@Entity(tableName = "commodities", primaryKeys = {"marketId", "commodityId", "collectDate"})
+public class Commodity {
+...
+}
+```
+* `DAO` : Database 에 접속하기 위한 메서드
+```java
+@Dao
+public abstract class CommodityDao {
+   
+    @Query("SELECT * FROM commodities "
+            + " WHERE collectDate = :collectDate "
+            + " AND marketId = :marketId ")
+    public abstract LiveData<List<Commodity>> loadAllCommodities(
+            @NonNull final String marketId,
+            @NonNull final String collectDate);
+
+...
+}
+
+```
+### 1.7. Retrofit2 + OkHttp3 : enqueue (비동기) / execute (동기) + Asynctask
+### 1.8. WorkManager : Background Notification 처리
+### 1.9. Material Design
+### 1.10. Material Collapsing Toolbar Layout - Support Subtitle
+### 1.11. Otto Bus : Activity, Fragment 간 이벤트가 발생했을 때 동시에 변경된 값을 UI에 반영
+### 1.12. Firebase Analytics
+### 1.13. Firebase Core
+### 1.14. Firebase Crashlytics
+### 1.15. Firebase Message (FCM)
+### 1.16. Glide v4
+### 1.17. Lombok : getter setter 간소화
+### 1.18. Zxing QR Code
+### 1.19. Google Map Service (GMS)
+### 1.20. Dexter : Permission
+### 1.21. Stetho : chrome://inspect/#devices 에서 sharedPreferences 등 Local DB 값, room DB, worker DB 값, 네트워크 상태 등 실시간 확인 가능
+### 1.22. Awesome Validation : 아이디, 패스워드, 이메일 양식 등 Input 값을 조건에 타당한지 검사해주는 라이브러리 (정규표현식)
+
+## 2. Gradle Compile Options
+### 2.1. Java v1.8
+
+## 3. Gradle Apply
+### 3.1. Google Message Services(GMS)
+### 3.2. Kotlin Android Extensions
+### 3.3. Kotlin Binding
+
+## 4. Gradle Default Config
+### 4.1. targetSdkVersion
+* When you upload an APK, it needs to meet Google Play’s target API level requirements. Both new apps and app updates must target at least Android 9 (API level 28).
+
+## 5. ETC
+### 5.1. Data Binding
+### 5.2. Live Data
+### 5.3. Rx Java는 적용하지 않음
+
+## 6. Reference
+* [MultiDex 사용법](http://sjava.net/2016/12/%EB%A9%80%ED%8B%B0-dex-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/)
