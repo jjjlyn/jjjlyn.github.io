@@ -1,51 +1,21 @@
-title: jjjlyn's blog
-author: jjjlyn
-email: prize1142@gmail.com
-description: > # this means to ignore newlines until "show_exerpts:"
-show_excerpts: true # set to true to show excerpts on the homepage
+# Site settings
+title: "On Software Engineering, Mathematics<br>and Philosophy"
+author: "Hugo Sereno Ferreira"
+description: "This is a blog about software, some mathematics, and the occasional philosophy. Not necessarily in that order."
+keywords: "Software Engineering, Mathematics, Philosophy, Scala, Epistemology, Existentialism, Programming, Machine-Learning, Artificial Intelligence, Statistics, Probability, Puzzles"
+biography: "I am a Professor of Software Engineering at the <a href='http://www.fe.up.pt'>Faculty of Engineering</a>, University of Porto and Senior Researcher at <a href='https://www.inesctec.pt'>INESC TEC</a>. Here you can find my <a href='/assets/thesis.pdf'>PhD Thesis</a> and my <a href='/assets/cv.pdf'>R챕sum챕</a>."
+colophon: "짤 MMXIII ??MMXVI by Hugo Sereno Ferreira.<br>Content available under <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons (BY-NC-SA)</a> unless otherwise noted.<br>This site is hosted at <a href='https://pages.github.com/'>Github Pages</a> and created with <a href='http://jekyllrb.com/'>Jekyll</a>."
 
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-sass:
-  sass_dir: _sass
-plainwhite:
-  name: jjjlyn
-  tagline: kotlin. java. dart
-  date_format: "%b %-d, %Y"
-  sitemap: true # set to true to generate sitemap.xml content
+baseurl: ""
+url: "http://hugosereno.eu"
 
-  # generate social links in footer
-  social_links:
-    github:  jjjlyn
-    rss: rss
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    # linkedin: jekyll
-    # pinterest: jekyll
-    # youtube: jekyll
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
+twitter_username: ferreira_hugo
+github_username: hugoferreira
+linkedin_username: hugoserenoferreira
+facebook_username: hugo.sereno.ferreira
+google-analytics: UA-69060-5
 
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-
-# Build settings
-theme: plainwhite
-
-plugins:
-  - jekyll-seo-tag
-#  - jekyll-feed
+simple_search: http://google.com/search
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
