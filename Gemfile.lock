@@ -209,12 +209,15 @@ GEM
     octokit (4.15.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
+    papyrus (0.0.2)
+      rdoc (>= 3.9.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.1.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rdoc (6.2.1)
     rouge (3.13.0)
     ruby-enum (0.7.2)
       i18n
@@ -247,7 +250,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-feed (~> 0.12)
-  minima (~> 2.5)
+  papyrus
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)
