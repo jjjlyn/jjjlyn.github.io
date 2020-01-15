@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 2019 Nais Vietnam Project 
-date: 2016-05-28 15:46
+title: 2019 Nais Vietnam Project
+date: 2020-01-15
 comments: true
 external-url:
 categories: Mathematics
