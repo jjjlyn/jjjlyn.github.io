@@ -2,6 +2,6 @@
 
 jjjlyn tech blog
 
-## Install and Test
+## Blog Address
 
 > Access via: http://jjjlyn.github.io/
