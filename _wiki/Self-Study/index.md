@@ -1,7 +1,7 @@
 [[BOOK]]
 [[PROJECT]]
 [[VIM]]
-[[FLUTTER]]
+[[FLUTTER.dart]]
 [[Kotlin-전환]]
 [[Java-면접-준비]]
 [[git]]
