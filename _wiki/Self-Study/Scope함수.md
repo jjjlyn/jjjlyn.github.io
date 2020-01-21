@@ -76,3 +76,15 @@ val button = Button(context).also{
 ```
 ~~이건 솔직히 뭔지 모르겠다~~
 
+### also(), takeIf(), takeUnless()
+`also`는 `apply`와 유사하다. 리시버를 받고, 리시버에 어떤 행위를 하고, 리시버를 리턴한다. 차이는 `apply`안의 블록에서는 리시버를 `this`로 접근할 수 있는데 반해 `also`의 블록에서는 `it`으로 접근 가능하다는 것이다(원한다면 다른 이름을 줄 수도 있다). 이는 바깥 범위의 `this`를 감추고 싶지 않을 때 쓸모있다(?) ~~뭔 소리야 ㅠㅠ~~ 
+```
+fun Block.copy() = Block().also{
+    it.content = this.content
+}
+```
+
+`takeIf`는 단일 값에 대해서 `filter`와 유사함. 리시버가 조건을 충족하는지 검사하고 충족하면 리시버를 리턴, 그렇지 않으면 `null`을 리턴한다. 
+```
+val outDirFile = File(outputDir.path).takeIf{
+    it.exists()} ?: return false
