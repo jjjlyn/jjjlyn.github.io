@@ -3,3 +3,4 @@
 [[Static이냐-EventBus냐]]
 [[Static변수]]
 [[Kotlin-변환]]
+[[setVisibility]]
