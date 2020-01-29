@@ -1,16 +1,16 @@
 ---
 layout: default
-title: About Long Haul
+title: About jjjlyn
 ---
 
 <div class="post">
-	<h1 class="pageTitle">About Long Haul</h1>
-	<img src="{{ '/assets/img/touring.jpg' | prepend: site.baseurl }}" alt="">
-	<p class="intro">Long Haul is a minimal, long form <a href="http://jekyllrb.com">Jekyll</a> Theme. It can be used as is or customized to your hearts desire.</p>
+	<h1 class="pageTitle">About jjjlyn</h1>
+	<img src="{{ '/assets/img/pikachu-face.png' | prepend: site.baseurl }}" alt="">
+	<p class="intro">jjjlyn의 기술 블로그 입니다. 지금은 안드로이드 개발을 하고 있습니다. <a href="https://github.com/jjjlyn">GitHub</a> 에 놀러오세요. </p>
 	<p>Long Haul was created in honor of all the hard working touring bicycles that have traversed the globe time and time again. Take it for a spin.</p>
-	<h2>Features</h2>
+	<h2>약력</h2>
 	<ul>
-		<li>Built with SASS + GULP + BROWSERSYNC + AUTOPREFIXER</li>
+               <li>대학은 가까스로 나왔다...</li>
   		<li>SVG Social Icons from <a href="http://customizr.net/icons/">Customizr</a></li>
   		<li><a href="http://responsive-nav.com/">Responsive Nav Menu</a></li>
   		<li><a href="https://github.com/snaptortoise/jekyll-rss-feeds">XML Feed for RSS Readers</a></li>
