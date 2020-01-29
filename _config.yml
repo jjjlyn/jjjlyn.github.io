@@ -1,7 +1,7 @@
-title: Long Haul
+title: jjjlyn tech blog
 description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
 
-url: http://brianmaierjr.github.com/long-haul
+url: https://github.com/jjjlyn
 baseurl: ""
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
@@ -20,9 +20,7 @@ navigation:
     url: /contact
 
 social:
-  github: brianmaierjr
-  twitter: brianmaierjr
-  facebook: brianmaierjr
-  email: brimaidesigns@gmail.com
+  github: jjjlyn
+  email: prize1142@gmail.com
 
 google_analytics: "UA-58263416-1"
