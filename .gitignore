@@ -1,3 +1,26 @@
+*.gem
+.bundle
+.sass-cache
+
+Gemfile.lock
+
+Thumbs.db
+.DS_Store
+
+.rbenv-version
+.rvmrc
+/node_modules
+/yarn-error.log
+_site/
+yarn.lock
+
+# Ignore Yard Doc
+/doc
+.yardoc/
+
+_backup/
+rafts/
+
 _site/
 .sass-cache/
 .jekyll-metadata
