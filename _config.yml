@@ -21,10 +21,8 @@ navigation:
   - title: Articles
     url: /articles
 
-comments:
-  provider : "disqus"
-  disqus:
-    shortname : "jjjlyn"    
+discus_url: https://https-jjjlyn-github-io.disqus.com/
+discus_id: disqus_4l6bHJqYlN
 
 social:
   github: jjjlyn
