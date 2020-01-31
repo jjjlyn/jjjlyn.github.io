@@ -4,11 +4,14 @@ title: Contact jjjlyn
 ---
 
 <div id="contact">
-  <h1 class="pageTitle">Contact Me</h1>
+  <h1 class="pageTitle">Contact jjjlyn</h1>
   <div class="contactContent">
-    <p class="intro">This is an example Contact page. If you want to make changes then do so in the <code>contact.html</code> file.</p>
-    <p>The form is provided by <a href="http://formspree.io/">Formspree.</a> Follow the directions on their site to set up the form for use.</p>
-    <p>If you have questions about the theme feel free to <a href="mailto:prize1142@gmail.com">email me</a> or create an issue on <a href="https://github.com/jjjlyn">GitHub</a>. Enjoy!</p>
+    <p class="intro">&#128640; jjjlyn's Contact address
+    <br>联系方式</p>
+    <p>&#10145; 微信号(wechat): rnldyal1259
+    <br>&#10145; 电子邮件(e-mail): <a herf="mailto:prize1142@gmail.com">prize1142@gmail.com</a></p>
+    <p>상단에 기재된 연락처로 문의주시길 바랍니다.<br>您有什么问题，通过联络方式联系我哦
+    <br>If you have questions about this blog feel free to <a href="mailto:prize1142@gmail.com">email me</a> or create an issue on <a href="https://github.com/jjjlyn">GitHub</a>.</p>
   </div>
   <form action="http://formspree.io/your@mail.com" method="POST">
     <label for="name">Name</label>

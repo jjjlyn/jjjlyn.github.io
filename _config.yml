@@ -1,14 +1,14 @@
 title: jjjlyn tech blog
-description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
+description: 잊어버리지 않게 기록해두는 잡지식 창고
 
-url: https://github.com/jjjlyn
+url: https://jjjlyn.github.io
 baseurl: ""
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
+encoding: UTF-8
 
 markdown: kramdown
 highlighter: rouge
-plugins: [jekyll-paginate]
 paginate: 5
 
 navigation:
@@ -18,9 +18,37 @@ navigation:
     url: /about
   - title: Contact
     url: /contact
+  - title: Articles
+    url: /articles
+
+comments:
+  provider : "disqus"
+  disqus:
+    shortname : "jjjlyn"    
 
 social:
   github: jjjlyn
   email: prize1142@gmail.com
 
-google_analytics: "UA-58263416-1"
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true      
+
+plugins:
+  - jekyll-paginate
+
+
+languages: ['ko','en']
+default_lang: 'ko'
+exclude_from_localization: ['javascript','images','css']
+parallel_localization: false
