@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Long Haul
+title: jjjlyn tech blog
 ---
 
 <div class="home" id="home">
@@ -8,7 +8,9 @@ title: Long Haul
   <ul class="posts noList">
     {% for post in paginator.posts %}
       <li>
-        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
+        <span class="date">{{ post.date | date: '%B %d, %Y' }}
+          • <a href="https://jjjlyn.github.io{{ post.url }}#disqus_thread">0 Comments</a>
+        </span>
         <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
         <p>{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html }}{% endif %}</p>
       </li>
