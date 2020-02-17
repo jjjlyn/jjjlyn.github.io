@@ -47,7 +47,7 @@ defaults:
       share: true
       related: true      
 
-plugins:
+gems:
   - jekyll-paginate
 
 

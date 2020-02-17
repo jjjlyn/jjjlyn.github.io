@@ -35,7 +35,7 @@ set showbreak=+++\ "윗 줄과 연결된 줄은 '+++"로 시작되어 알아볼 수 있도록 한다.
 set linebreak "라인을 끊을 때 단어 단위로 자르기
 " set encoding=utf-8
 set fileencodings=utf-8,euckr
-
+set nofoldenable
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 16
