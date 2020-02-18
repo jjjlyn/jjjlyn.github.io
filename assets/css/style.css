@@ -61,7 +61,7 @@ b,strong {
 }
 
 pre {
-  line-height: 1.2em;
+  line-height: 1.4em;
   font: 1em;
   padding: 10px;
   overflow:auto;
@@ -76,14 +76,14 @@ pre {
 code {
   border-radius: 4px;
   padding: 0.2em 0.2em 0.2em 0.2em;
-  font-weight: 400;
+  font-weight: 530;
   color: rgb(100, 57, 93);
-  background-color: #f9f1f3;
+  background: #f3ebed;
   font-size: 0.9em;
 }
 
 code, kbd, samp {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -477,7 +477,7 @@ th:last-child {
   overflow: auto;
   word-wrap: normal;
   padding: 0 20px;
-  background: #f9f1f3;
+  background: #f3ebed;
   color: #2e3436;
 }
 
@@ -517,20 +517,56 @@ th:last-child {
   color: rgb(208, 169, 175);
 }
 
-.highlight .bp,.highlight .err,.highlight .g,.highlight .ge,.highlight .gp,.highlight .gs,.highlight .gt,.highlight .l,.highlight .ld,.highlight .n,.highlight .nc,.highlight .nd,.highlight .ne,.highlight .nl,.highlight .nn,.highlight .nx,.highlight .ow,.highlight .p,.highlight .py,.highlight .s,.highlight .s1,.highlight .s2,.highlight .sb,.highlight .sc,.highlight .sd,.highlight .se,.highlight .sh,.highlight .si,.highlight .sr,.highlight .ss,.highlight .sx,.highlight .w,.highlight .x {
+.highlight .nd,.highlight .ne,.highlight .nl,.highlight .nn,.highlight .nx,.highlight {
+  color: #434ca3;
+}
+
+.highlight .nc{
+  color: #000;
+}
+
+.highlight .n{
+  color: #b91a1a;
+}
+
+.highlight .bp,.highlight .err,.highlight .l,.highlight .ld,.highlight .ow,.highlight .s,.highlight .s1,.highlight .s2,.highlight .sb,.highlight .sc,.highlight .sd,.highlight .se,.highlight .sh,.highlight .si,.highlight .sr,.highlight .ss,.highlight .sx,.highlight .w,.highlight .x {
   color: #412226;
 }
 
-.highlight .k,.highlight .kc,.highlight .kd,.highlight .kn,.highlight .kp,.highlight .kr,.highlight .nt {
-  color: #a849ac;
+.highlight .p{
+  color: rgb(138, 136, 136);
+}
+
+.highlight .py{
+  color: #000;
+}
+
+.highlight .g,.highlight .ge,.highlight .gp,.highlight .gs,.highlight .gt{
+  color: rgb(48, 139, 94);
+}
+
+.highlight .kc,.highlight .kn,.highlight .kp,.highlight .kr,.highlight .nt {
+  color: #418a9c;
+}
+
+.highlight .k {
+  color: #24a3dd;
+}
+
+.highlight .kd{
+  color: #6b3796;
 }
 
 .highlight .cp,.highlight .gh,.highlight .gu,.highlight .na,.highlight .nf {
   color: #e9a94b;
 }
 
+.highlight .nf {
+  color: #b91a1a;
+}
+
 .highlight .il,.highlight .m,.highlight .mf,.highlight .mh,.highlight .mi,.highlight .mo,.highlight .nb,.highlight .no {
-  color: rgb(226, 52, 52);
+  color: rgb(170, 146, 66);
 }
 
 .highlight .o {
@@ -1001,7 +1037,7 @@ dd {
   }
 
   .header {
-    height: 15em;
+    height: 10em;
     position: relative;
     padding-bottom: 2em;
   }
@@ -1040,14 +1076,14 @@ dd {
   }
 
   .header nav ul li a {
-    color: #fff;
+    color: rgb(80, 79, 79);
     font-size: .9em;
     text-decoration: none;
     padding: 0 .25em;
   }
 
   .header nav ul li a:hover {
-    color: #ccc;
+    color: rgb(179, 177, 177);
   }
 
   .header nav ul li.current {
