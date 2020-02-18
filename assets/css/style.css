@@ -45,6 +45,7 @@ a {
 }
 
 a:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -59,11 +60,32 @@ b,strong {
   font-weight: bolder;
 }
 
-code,kbd,samp {
-  font-family: monospace,monospace;
-  font-size: 0.8em;
-  font-weight: 400;
+pre {
+  line-height: 1.2em;
+  font: 1em;
+  padding: 10px;
+  overflow:auto;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #FAFAFB;
+  background: #FAFAFB;
+  color: #FAFAFB;
 }
+
+code {
+  border-radius: 4px;
+  padding: 0.2em 0.2em 0.2em 0.2em;
+  font-weight: 400;
+  color: rgb(100, 57, 93);
+  background-color: #f9f1f3;
+  font-size: 0.9em;
+}
+
+code, kbd, samp {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 
 dfn {
   font-style: italic;
@@ -198,8 +220,10 @@ body .intro {
 }
 
 .h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
+  color: #3b1738;
+  font-weight: bold;
   margin: .5rem 0 1.5rem;
-  font-family: Open Sans,Helvetica,Arial,sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .h1,h1 {
@@ -216,8 +240,8 @@ body .intro {
 
 @media (min-width:56.25em) {
   .h1,h1 {
-    font-size: 3em;
-    line-height: 1.05;
+    font-size: 2.7em;
+    line-height: 1.2;
   }
 }
 
@@ -452,10 +476,9 @@ th:last-child {
   white-space: pre;
   overflow: auto;
   word-wrap: normal;
-  border-radius: 3px;
   padding: 0 20px;
-  background: #343642;
-  color: #c1c2c3;
+  background: #f9f1f3;
+  color: #2e3436;
 }
 
 .highlight .hll {
@@ -483,7 +506,7 @@ th:last-child {
 }
 
 .highlight .kt {
-  color: #e3e7df;
+  color: #9b3c41;
 }
 
 .highlight .ni {
@@ -491,15 +514,15 @@ th:last-child {
 }
 
 .highlight .c,.highlight .c1,.highlight .cm,.highlight .cs {
-  color: #A9BAD0;
+  color: rgb(208, 169, 175);
 }
 
 .highlight .bp,.highlight .err,.highlight .g,.highlight .ge,.highlight .gp,.highlight .gs,.highlight .gt,.highlight .l,.highlight .ld,.highlight .n,.highlight .nc,.highlight .nd,.highlight .ne,.highlight .nl,.highlight .nn,.highlight .nx,.highlight .ow,.highlight .p,.highlight .py,.highlight .s,.highlight .s1,.highlight .s2,.highlight .sb,.highlight .sc,.highlight .sd,.highlight .se,.highlight .sh,.highlight .si,.highlight .sr,.highlight .ss,.highlight .sx,.highlight .w,.highlight .x {
-  color: #c1c2c3;
+  color: #412226;
 }
 
 .highlight .k,.highlight .kc,.highlight .kd,.highlight .kn,.highlight .kp,.highlight .kr,.highlight .nt {
-  color: #729fcf;
+  color: #a849ac;
 }
 
 .highlight .cp,.highlight .gh,.highlight .gu,.highlight .na,.highlight .nf {
@@ -507,11 +530,11 @@ th:last-child {
 }
 
 .highlight .il,.highlight .m,.highlight .mf,.highlight .mh,.highlight .mi,.highlight .mo,.highlight .nb,.highlight .no {
-  color: #348AE2;
+  color: rgb(226, 52, 52);
 }
 
 .highlight .o {
-  color: #989daa;
+  color: #9b4e5e;
 }
 
 .highlight .nv,.highlight .vc,.highlight .vg,.highlight .vi {
@@ -527,7 +550,7 @@ html {
 }
 
 body {
-  font-family: Nanum Gothic, PT Serif,Georgia,Times,serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, PT Serif,Georgia,Times,serif;
   line-height: 1.75;
   font-size: 112.5%;
   color: #111;
@@ -545,7 +568,7 @@ body p,body ul {
 }
 
 ::selection {
-  background: #2E578B;
+  background: rgb(218, 194, 202);
   color: #fff;
 }
 
@@ -561,11 +584,11 @@ audio,iframe,img,object,video {
 }
 
 a {
-  color: #2E578B;
+  color: rgb(109, 54, 92);
 }
 
 a:hover {
-  color: #1B3352;
+  color: rgb(80, 19, 19);
 }
 
 .nav-collapse {
@@ -663,13 +686,14 @@ dd {
 }
 
 .header {
-  background-color: #2E578B;
-  background-image: url(../img/banner.jpg);
-  background-size: cover;
-  background-position: 50%;
+  /* background-color: rgb(253, 252, 253);
+  background: rgb(250, 234, 250); */
+  /* background-image: url(../img/banner.jpg); */
+  /* background-size: cover; */
+  /* background-position: 50%; */
   color: #fff;
   padding: 0;
-  height: 3em;
+  height: 2em;
 }
 
 .header .container {
@@ -683,13 +707,13 @@ dd {
   padding-left: 2rem;
   font-size: 1em;
   line-height: 3em;
-  font-family: Open Sans,Helvetica,Arial,sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  text-transform: lowercase;
 }
 
 .header h1 a {
-  color: #fff;
+  color: rgb(156, 23, 90);
   text-decoration: none;
 }
 
@@ -699,14 +723,22 @@ dd {
   margin-bottom: 1rem;
 }
 
-.post blockquote {
+.post blockquote:before {
   clear: both;
-  margin: 2.5em 0;
-  padding: 0;
-  line-height: 1.8;
-  position: relative;
+  content: "\201C";
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 3em;
+  float: left;
+  color: #bcbcbc;
+  margin: -5px 10px 0px -10px;
 }
 
+.post blockquote{
+  font-style: italic;
+  font-size: 1em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* 
 .post blockquote:before {
   top: -1.25em;
 }
@@ -723,7 +755,7 @@ dd {
 
 .post blockquote:after {
   bottom: -1.25em;
-}
+} */
 
 .post .meta {
   text-align: center;
@@ -839,7 +871,7 @@ dd {
 }
 
 .footer .container {
-  border-top: 4px solid #d9d9d9;
+  border-top: 4px solid #e7d7e3;
   padding-top: .5em;
   max-width: 90%;
 }
@@ -874,7 +906,7 @@ dd {
 }
 
 .footer-links ul li a svg .outer-shape {
-  fill: #2E578B;
+  fill: rgb(139, 46, 103);
 }
 
 .footer-links ul li a svg .inner-shape {
@@ -882,7 +914,7 @@ dd {
 }
 
 .footer-links ul li:hover a svg .outer-shape {
-  fill: #7994B5;
+  fill: rgb(181, 121, 149);
 }
 
 .pagination .next {
@@ -940,7 +972,6 @@ dd {
 
   .content:after {
     z-index: -1;
-    background: #fff;
     content: "";
     display: block;
     width: 100%;
@@ -948,7 +979,7 @@ dd {
     position: absolute;
     top: -2em;
     left: 0;
-    transform: skewY(-2deg);
+    /* transform: skewY(-2deg); */
     transform-origin: bottom left;
   }
 
@@ -976,15 +1007,16 @@ dd {
   }
 
   .header .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    margin: 2rem 2rem;
+    margin-top: 2rem;
+    /* top: 40%; */
+    /* transform: translateY(-50%); */
     max-width: 800px;
     overflow: hidden;
   }
 
   .header h1 {
-    font-size: 3em;
+    font-size: 2.7em;
     line-height: 1;
     letter-spacing: -3px;
     padding-left: 0;
@@ -1096,7 +1128,7 @@ dd {
 
   .footer .container {
     padding: 1rem 0;
-    max-width: 800px;
+    max-width: 1000px;
   }
 
   .contactContent {
@@ -1132,10 +1164,10 @@ dd {
 
 @media only screen and (min-width:1200px) {
   body {
-    font-size: 137.5%;
+    font-size: 120%;
   }
 
   .container {
-    max-width: 990px;
+    max-width: 1100px;
   }
 }

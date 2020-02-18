@@ -58,4 +58,4 @@ a?.equals(b) ?: (b == null)
 
 #### 출처
 - Kotlin In Action (p.316-317)
-- https://okky.kr/article/596050
+- <a href="https://ko.wikipedia.org/wiki/%EC%96%B5%EC%9D%8C_%EB%B6%80%ED%98%B8" target="_blank" rel="noopener" style="">https://okky.kr/article/596050</a>
