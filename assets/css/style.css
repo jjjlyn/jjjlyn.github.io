@@ -76,14 +76,14 @@ pre {
 code {
   border-radius: 4px;
   padding: 0.2em 0.2em 0.2em 0.2em;
-  font-weight: 530;
+  font-weight: 500;
   color: rgb(100, 57, 93);
-  background: #f3ebed;
+  background: #fcf5f6;
   font-size: 0.9em;
 }
 
 code, kbd, samp {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
@@ -343,7 +343,7 @@ blockquote {
 .button-secondary:focus,.button-secondary:hover,.button-tertiary:focus,.button-tertiary:hover,.button:focus,.button:hover,.button__outline:focus,.button__outline:hover {
   color: #fff;
   text-decoration: none;
-  background-color: #7994B5f;
+  background-color: #794B5f;
 }
 
 .button-secondary:active,.button-tertiary:active,.button:active,.button__outline:active {
@@ -477,9 +477,10 @@ th:last-child {
   overflow: auto;
   word-wrap: normal;
   padding: 0 20px;
-  background: #f3ebed;
+  background: #fcf5f6;
   color: #2e3436;
 }
+
 
 .highlight .hll {
   background-color: #ffc;
@@ -778,7 +779,6 @@ dd {
 .post blockquote:before {
   top: -1.25em;
 }
-
 .post blockquote:after,.post blockquote:before {
   content: "";
   position: absolute;
@@ -788,7 +788,6 @@ dd {
   width: 150px;
   left: calc(50% - 75px);
 }
-
 .post blockquote:after {
   bottom: -1.25em;
 } */
