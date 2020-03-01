@@ -3,6 +3,7 @@ layout: post
 title:  "레퍼런스 타입에서의 자바 equals()는 코틀린 == 과 같다(동등비교)"
 comments: true
 date:   2020-02-17
+tags: [kotlin]
 ---
 
 ## JAVA
