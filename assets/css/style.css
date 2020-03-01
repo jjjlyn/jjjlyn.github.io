@@ -219,6 +219,13 @@ body .intro {
   line-height: 1.7;
 }
 
+.contactText {
+  color: #b42963;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
 .h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
   color: #5c1432;
   font-weight: bold;

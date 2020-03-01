@@ -18,13 +18,11 @@ paginate: 5
 #     url: /about
 
 navigation:
-- title: Home
+- title: Posts
   url: /
 - title: About
   url: /about/
-- title: Categories
-  url: /categories
-- ttitle: Tags
+- title: Tags
   url: /tags/
 
 discus_url: https://https-jjjlyn-github-io.disqus.com/
