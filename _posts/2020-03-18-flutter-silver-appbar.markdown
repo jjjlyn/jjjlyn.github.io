@@ -64,7 +64,8 @@ tags: [dart, flutter]
 
 ### 먼저 결과물 
 
-<p align="middle">{% include youtube-screen.html id="OBqLJaCQUCA" %}</p>
+<p align="middle"><iframe width="560" height="315" src="https://www.youtube.com/embed/OBqLJaCQUCA" frameborder="0" allowfullscreen></iframe></p>
+
 
 <span style="color:#fc054f;">Silver App Bar</span> 위젯은 `expandedHeight: [int value]`파라미터를 **초기화** 해 주어야, App Bar가 `Expanded`일 때 설정해 준 높이값만큼 펼쳐진다. 이걸 설정해주지 않으면 App Bar가 펼쳐지지 않는다. 그러나 내가 원했던 건 초기부터 설정된 *static*한 높이가 아니라 <span style="color:#fc054f;">Silver App Bar</span>의 자식위젯인 `FlexibleSpaceBar`의 높이에 따라 유동적으로 변하는 높이였다. <span style="color:#fc054f;">Silver App Bar</span>는 자식 위젯이 그려지기 전에 먼저 그려지기 때문에 자식 위젯(여기서는 `FlexibleSpaceBar`)의 크기가 얼마가 될지 미리 계산해서 `expandedHeight`값으로 지정할 수 없다. `FlexibleSpaceBar` 위젯 안에 속하는 **자식 위젯의 높이를 미리 알 수 있는 방법**이 없을까? 고민하다가 찾아낸 방법이 바로 **전체화면을 `Stack`으로 놓고, 첫 번째 스택에 `FlexibleSpaceBar` 내부에 속하는 위젯을 먼저 할당하는 것**이다. `Stack`의 첫 번째 자식 위젯 렌더링이 완료되면, 그 다음 위젯의 렌더링이 실행될 것인데 이 때 이미 우리는 첫 번째 자식 위젯의 크기를 가져올 수 있다. 그러므로 두 번째 자식 위젯으로는 원래 화면에 띄워져야 할 <span style="color:#fc054f;">Silver App Bar</span>가 포함된 위젯을 배치시킨다. <br><br>
 `Stack`에 할당된 첫 번째 자식 위젯은 `Container`의 높이만 구하면 필요없는 녀석이므로 `Visiblity` 혹은 `OffStage`로 감싼다. `bool _isVisible`과 같은 변수로 <span style="color:#fc054f">flag</span>를 하나 선언하여 높이를 구하기 전에는 *true*, 높이를 구한 이후는 `Stack`의 두 번째 자식 위젯이 렌더링 된 후에도 계속 밑에 쌓여서 보이면 안되므로 *false*로 상태값을 변경하여 사라지게 한다. 물론 중복되는 `Container`를 렌더링했다 사라지게 했다 하는 식으로 높이 계산을 하기 때문에 쓸데없는 비용이 들어갈 것이다. 
@@ -160,7 +161,7 @@ Visibility(
 )
 ```
 
-다소 지저분하지만 **높이**를 구하는 코드이다. `Global Key`들이 구해지는대로 바로 그 값 자체를 더해서 `dynamicTotalHeight`으로 return 하면 사용자 경험이 정말 좋지 않아진다. 그러므로 **배열**에 담아서 return...
+다소 지저분하지만 **높이**를 구하는 코드이다. `GlobalKey`들이 구해지는대로 바로 그 값 자체를 더해서 `dynamicTotalHeight`으로 return 하면 사용자 경험이 정말 좋지 않아진다. 그러므로 **배열**에 담아서 return...
 ```dart
 double _dynamicTotalHeight;
 List<double> _childWidgetHeights = List();
