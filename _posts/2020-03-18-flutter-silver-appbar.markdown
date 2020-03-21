@@ -7,7 +7,7 @@ external-url:
 tags: [dart, flutter]
 ---
 <br>
-<span style="font-weight:bold; font-size:3em;">F</span>lutter에도 Android의 <span style="color:#fc054f; ">Collapse Toolbar Layout</span>과 비슷한 기능을 하는 위젯이 있다. <span style="color:#fc054f; ">Silver App Bar</span>가 되시겠다.
+<span style="font-weight:bold; font-size:3em; font-family: Georgia;">F</span>lutter에도 Android의 <span style="color:#fc054f; ">Collapse Toolbar Layout</span>과 비슷한 기능을 하는 위젯이 있다. <span style="color:#fc054f; ">Silver App Bar</span>가 되시겠다.
 안드로이드에서는 `wrap_content`로 레이아웃의 `weight`, `height`을 주면 그 사이즈만큼 유동적으로 늘어나거나 줄어든다.<br><br>
 안드로이드에서 <span style="color:#fc054f; ">Collapse Toolbar Layout</span>을 쓰면 이렇다. (안드로이드가 주가 아니니 xml의 앞과 뒤 생략)
 ```xml
@@ -53,7 +53,6 @@ tags: [dart, flutter]
         android:layout_height="?attr/actionBarSize"
         app:layout_collapseMode="pin"
         android:background="@android:color/transparent"/>
-
 </com.google.android.material.appbar.SubtitleCollapsingToolbarLayout>
 ```
 
@@ -63,8 +62,9 @@ tags: [dart, flutter]
 그래서 당연히 Flutter의 <span style="color:#fc054f;">SilverAppBar</span>에서도 **자식 위젯의 높이에 따른 부모 위젯의 유동적인 높이 처리**가 가능할 줄 알았다. 이번 결과물은 ~~편법~~으로 보일수도 있지만, 일단 원하는대로 나오긴 했으니 **#성공적...**이다. 그러나 불필요한 비용이 들어가는 방법이다.<br><br>
 참고로 Flutter 오픈 카톡방에 문의해 봤고, 모개발자분이 `ScrollController`의 `offset`을 이용해서 처리하라고 조언해 주셨다. 그 방법으로도 강구해봤으나 해결하지 못했다. &nbsp; &nbsp;  *&#128073; `Offset` 값을 이용하여 해결하신 분 있으시면 알려주세요 ㅠㅠ*<br><br>
 
-#### 먼저 결과물
- {% include youtube-screen.html id="https://youtu.be/OBqLJaCQUCA" %}  
+### 먼저 결과물 
+
+<p align="middle">{% include youtube-screen.html id="OBqLJaCQUCA" %}</p>
 
 <span style="color:#fc054f;">Silver App Bar</span> 위젯은 `expandedHeight: [int value]`파라미터를 **초기화** 해 주어야, App Bar가 `Expanded`일 때 설정해 준 높이값만큼 펼쳐진다. 이걸 설정해주지 않으면 App Bar가 펼쳐지지 않는다. 그러나 내가 원했던 건 초기부터 설정된 *static*한 높이가 아니라 <span style="color:#fc054f;">Silver App Bar</span>의 자식위젯인 `FlexibleSpaceBar`의 높이에 따라 유동적으로 변하는 높이였다. <span style="color:#fc054f;">Silver App Bar</span>는 자식 위젯이 그려지기 전에 먼저 그려지기 때문에 자식 위젯(여기서는 `FlexibleSpaceBar`)의 크기가 얼마가 될지 미리 계산해서 `expandedHeight`값으로 지정할 수 없다. `FlexibleSpaceBar` 위젯 안에 속하는 **자식 위젯의 높이를 미리 알 수 있는 방법**이 없을까? 고민하다가 찾아낸 방법이 바로 **전체화면을 `Stack`으로 놓고, 첫 번째 스택에 `FlexibleSpaceBar` 내부에 속하는 위젯을 먼저 할당하는 것**이다. `Stack`의 첫 번째 자식 위젯 렌더링이 완료되면, 그 다음 위젯의 렌더링이 실행될 것인데 이 때 이미 우리는 첫 번째 자식 위젯의 크기를 가져올 수 있다. 그러므로 두 번째 자식 위젯으로는 원래 화면에 띄워져야 할 <span style="color:#fc054f;">Silver App Bar</span>가 포함된 위젯을 배치시킨다. <br><br>
 `Stack`에 할당된 첫 번째 자식 위젯은 `Container`의 높이만 구하면 필요없는 녀석이므로 `Visiblity` 혹은 `OffStage`로 감싼다. `bool _isVisible`과 같은 변수로 <span style="color:#fc054f">flag</span>를 하나 선언하여 높이를 구하기 전에는 *true*, 높이를 구한 이후는 `Stack`의 두 번째 자식 위젯이 렌더링 된 후에도 계속 밑에 쌓여서 보이면 안되므로 *false*로 상태값을 변경하여 사라지게 한다. 물론 중복되는 `Container`를 렌더링했다 사라지게 했다 하는 식으로 높이 계산을 하기 때문에 쓸데없는 비용이 들어갈 것이다. 
@@ -104,7 +104,7 @@ tags: [dart, flutter]
   }
 ```
 
-### **[압권의 편법]**
+### 압권의 편법
 그렇다면 어떤 식으로 높이를 계산하는가? 독자들은 당혹스럽겠지만 `GlobalKey`를 이용하였다. 그것도 무려 3개나 선언하였다. 아마추어틱하게 `Container > Column` 에 속하는 Text 자식 위젯의 크기를 각각 구하기 위해 `final stickyKey = GlobalKey()` 이런 식으로 객체 3개를 생성하였다.<br><br>
 > <span style="font-size: 2em; font-weight: bold">Why?</span><br>
 > &nbsp; &nbsp;   Container나 Column 전체에 GlobalKey를 하나 선언하게 될 경우 전체 스크린 높이(double.infinity)를 return한다. 이를 방지하기 위해서는 Column에 선언된 자식 위젯 별로 GlobalKey를 각각 하나씩 부여할 수밖에 없었다.
@@ -194,5 +194,5 @@ List<double> _childWidgetHeights = List();
   }
 ```  
 
-### 참고
+#### 참고
 <a href="https://gist.github.com/jjjlyn/82bc323c23682d9581d83f6861db2cc5" target="_blank" rel="noopener" style="">[전체코드 보기]</a>
