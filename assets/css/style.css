@@ -79,11 +79,11 @@ code {
   font-weight: 500;
   color: rgb(100, 57, 93);
   background: #fcf5f6;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 code, kbd, samp {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -534,11 +534,15 @@ th:last-child {
 }
 
 .highlight .n{
-  color: #b91a1a;
+  color: black;
 }
 
-.highlight .bp,.highlight .err,.highlight .l,.highlight .ld,.highlight .ow,.highlight .s,.highlight .s1,.highlight .s2,.highlight .sb,.highlight .sc,.highlight .sd,.highlight .se,.highlight .sh,.highlight .si,.highlight .sr,.highlight .ss,.highlight .sx,.highlight .w,.highlight .x {
+.highlight .bp,.highlight .err,.highlight .l,.highlight .ld,.highlight .ow,.highlight .s1,.highlight .s2,.highlight .sb,.highlight .sc,.highlight .sd,.highlight .se,.highlight .sh,.highlight .si,.highlight .sr,.highlight .ss,.highlight .sx,.highlight .w,.highlight .x {
   color: #412226;
+}
+
+.highlight .s{
+  color: rgb(31, 146, 121)
 }
 
 .highlight .p{
@@ -565,8 +569,12 @@ th:last-child {
   color: #6b3796;
 }
 
-.highlight .cp,.highlight .gh,.highlight .gu,.highlight .na,.highlight .nf {
+.highlight .cp,.highlight .gh,.highlight .gu,.highlight .nf {
   color: #e9a94b;
+}
+
+.highlight .na {
+  color: rgb(124, 123, 123);
 }
 
 .highlight .nf {
@@ -815,9 +823,9 @@ center {
 
 .post blockquote{
   background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 1em 10px;
+  border-left: 3px solid #ccc;
+  margin: 1.5em 1.5em 1.5em 1.5em;
+  padding: 0.2em 0.2em 0.2em 0.2em;
   color: #495057 !important;
 }
 
