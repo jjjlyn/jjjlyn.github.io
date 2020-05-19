@@ -452,13 +452,15 @@ table caption {
   letter-spacing: 1px;
 }
 
-tr {
+.gist .blob-code-inner{ font-size:16px !important; }
+
+/* tr {
   border-bottom: 1px solid #d0d0d0;
 }
 
 tr:nth-child(2n) {
   background-color: #f7f7f7;
-}
+} */
 
 td {
   padding: 7px;
