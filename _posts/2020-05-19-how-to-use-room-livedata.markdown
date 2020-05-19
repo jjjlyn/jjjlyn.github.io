@@ -12,18 +12,26 @@ tags: [kotlin]
 **(i.e. DatePickerDialog에서 선택한 날짜, Spinner에서 선택한 값 등)**<br>
 를 LiveData 호출하는 메서드의 매개변수로 전달하고 싶을 때가 있다. 
 
-이럴 때 View에서 ViewModel에 선언된 메서드로 직접 파라미터 값을 넘기는 방법<br>
-**(i.e. fun loadHistory(date: String) <-- View에서 받아온 date값을 ViewModel에 선언된 메서드에 직접 넘기는 방법)**<br>
+이럴 때 View에서 ViewModel에 선언된 메서드로 직접 파라미터 값을 넘기는 방법
+
+```kotlin
+class HistoryViewModel : ViewModel(){
+    // You shouldn't do like this
+    fun loadHistory(date: String) : LiveData<History> {
+        return mHistoryDAO.loadHistory(date)
+    }
+}
+```
 은 지양하는 것이 좋다.
 
 대신 ViewModel에서
 
 <script src="https://gist.github.com/jjjlyn/a4aba9810a39243d4791d99956590a61.js"></script>
 
-
 를 사용하자. 
 
-**Transformation.switchMap**은 parameter에 들어가는 Livedata value가 변할 때마다 지속적으로 달라진 상태의 LiveData를 반환한다.
+**Transformation.switchMap**은 **parameter에 들어가는 Livedata value**가 변할 때마다 지속적으로 달라진 상태의 LiveData를 반환한다.
+예시코드에서는 `mDate`로 선언된 Livedata value값이 변하면 (View 단에서 `mHistoryViewModel.setDate(mDate)`로 mDate.value를 바꿈), Transformation.switchMap이 mDate.value의 변화된 값을 감지한 후 우리가 반환하려는 Room DAO에 선언된 `mHistoryDAO.loadHistory()`에 mDate.value값을 전달하여 `LiveData<History>`를 반환한다. 
 
 <script src="https://gist.github.com/jjjlyn/219b45f25050ff6580d7d368b82f3ad2.js"></script>
  
@@ -43,5 +51,5 @@ private var mDate : String? = null
 mHistoryViewModel.loadHistory(mDate)
 ```
 
-이런 식으로 호출했었는데, mDate에 들어간 값이 항상 불안정하여 원하는 Livedata가 반환되지 않는 상황이 발생하여 삽질한 경험이 있다.
+이런 식으로 호출했었는데, mDate에 들어간 값이 항상 불안정하여 원하는 Livedata가 반환되지 않는 상황이 발생한 경험이 있다.
 나와 같이 삽질하는 사람들이 없길 바라며... &#128514;
