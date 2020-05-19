@@ -23,7 +23,8 @@ tags: [kotlin]
 
 를 사용하자. 
 
-**Transformation.switchMap**은 parameter에 들어가는 Livedata value가 변할 때마다 지속적으로 달라진 상태의 LiveData를 반환한다.
+**Transformation.switchMap**은 **parameter에 들어가는 Livedata value**가 변할 때마다 지속적으로 달라진 상태의 LiveData를 반환한다.
+예시코드에서는 `mDate`로 선언된 Livedata value값이 변하면 (View 단에서 `mHistoryViewModel.setValue(mDate)`로 mDate.value를 바꿈), Transformation.switchMap이 mDate.value의 변화된 값을 감지하여 우리가 반환하려는 Room DAO에 선언된 `mHistoryDAO.loadHistory()`에 mDate.value값을 전달한다. 
 
 <script src="https://gist.github.com/jjjlyn/219b45f25050ff6580d7d368b82f3ad2.js"></script>
  
