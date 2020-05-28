@@ -591,8 +591,12 @@ th:last-child {
   color: #9b4e5e;
 }
 
-.highlight .nv,.highlight .vc,.highlight .vg,.highlight .vi {
+.highlight .vc,.highlight .vg,.highlight .vi {
   color: #fff;
+}
+
+.highlight .nv {
+  color: #000;
 }
 
 html {
