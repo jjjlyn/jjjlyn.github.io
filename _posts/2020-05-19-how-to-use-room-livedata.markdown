@@ -34,7 +34,7 @@ class HistoryViewModel : ViewModel(){
 예시코드에서는 `mDate`로 선언된 Livedata value값이 변하면 (View 단에서 `mHistoryViewModel.setDate(mDate)`로 mDate.value를 바꿈), Transformation.switchMap이 mDate.value의 변화된 값을 감지한 후 우리가 반환하려는 Room DAO에 선언된 `mHistoryDAO.loadHistory()`에 mDate.value값을 전달하여 `LiveData<History>`를 반환한다. 
 
 <script src="https://gist.github.com/jjjlyn/219b45f25050ff6580d7d368b82f3ad2.js"></script>
- 
+
 `date`는 View에서 선택한 DatePickerDialog의 값에 따라 달라지는 날짜라고 가정해보자. `date`를 선택한 후 ViewModel에 선언된 setDate()로 그 값을 넘겨주면 subscribeObservers()내의 loadHistory()가 Callback으로 실행된다.
 
 <script src="https://gist.github.com/jjjlyn/05df4111bfcce4116d1a77ac3e95fd2a.js"></script>
