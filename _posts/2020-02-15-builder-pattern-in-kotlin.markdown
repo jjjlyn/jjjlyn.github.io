@@ -4,6 +4,7 @@ title: 코틀린에 빌더 패턴을 적용하려면? (코틀린에는 사실 �
 date: 2020-02-15
 comments: true
 external-url:
+tags: [kotlin]
 ---
 
 

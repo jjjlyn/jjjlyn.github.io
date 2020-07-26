@@ -796,6 +796,7 @@ center {
 }
 
 .postList .tag{
+  display: flex;
   padding: 3px;
   font-size: 0.9rem;
   color: white;
