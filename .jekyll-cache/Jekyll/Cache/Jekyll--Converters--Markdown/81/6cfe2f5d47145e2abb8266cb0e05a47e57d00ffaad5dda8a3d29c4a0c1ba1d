@@ -1,0 +1,5 @@
+I"n<p><br />
+<strong>Room Database</strong>로부터 Livedata를 호출하는 일은 자주 발생한다. View(Activity 혹은 Fragment)에서 변경되는 데이터<br />
+<strong>(i.e. DatePickerDialog에서 선택한 날짜, Spinner에서 선택한 값 등)</strong><br />
+를 LiveData 호출하는 메서드의 매개변수로 전달하고 싶을 때가 있다.</p>
+:ET

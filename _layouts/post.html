@@ -9,18 +9,19 @@ comments: true
     {% if page.comments %} • <a href="https://jjjlyn.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}
   </p>
 
-
   {% if page.tags %}
-  {% for tag in page.tags %}
-    {% if site.data.tags contains tag %}
-      <span class="tag">{{ site.data.format[tag] }}</span>
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
+  <div class="tagList" style="display: flex; justify-content: start;">
+    {% for tag in page.tags %}
+      {% if site.data.tags contains tag %}
+      <div class="tag">
+        # {{ site.data.format[tag] }}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
 
   {{ content }}
-
 
   {% if site.comments.disqus.shortname %}
   {% include disqus_comments.html %}

@@ -19,7 +19,7 @@ paginate: 5
 
 navigation:
 - title: Posts
-  url: /
+  url: /posts/
 - title: About
   url: /about/
 - title: Tags
@@ -53,10 +53,8 @@ defaults:
       share: true
       related: true      
 
-gems:
-  - jekyll-paginate
-
-
+gems: ['jekyll-paginate']
+plugins: ['jekyll-paginate']
 languages: ['ko','en']
 default_lang: 'ko'
 exclude_from_localization: ['javascript','images','css']
