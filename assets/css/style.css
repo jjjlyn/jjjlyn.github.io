@@ -629,7 +629,7 @@ body {
 
 body p, body ul {
   width: 95%;
-  margin: 1rem auto 2em;
+  margin: 3rem auto 2em;
 }
 
 ::-moz-selection {
