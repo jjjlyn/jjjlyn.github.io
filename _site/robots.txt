@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://jjjlyn.github.io/sitemap.xml
