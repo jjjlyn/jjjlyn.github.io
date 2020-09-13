@@ -1,0 +1,157 @@
+I"�D<h4 id="목차">[목차]</h4>
+<ol>
+  <li>중복된 코드를 없애보자</li>
+  <li>상수값 관리 방식을 바꿔보자</li>
+  <li>3개 이상의 매개변수를 받는 메서드</li>
+  <li>하나의 메서드는 하나의 기능만 하는가?</li>
+  <li>else 예약어를 없애보자</li>
+  <li>Indent &gt;= 2 인 메서드를 리팩토링 해보자</li>
+  <li>일급 콜렉션 메서드를 만들자</li>
+  <li>메서드 안에 선언된 로컬변수는 꼭 필요한 것일까?</li>
+</ol>
+
+<h4 id="정리">정리</h4>
+
+<p>구글 맵 API를 사용한 안드로이드 프로젝트이다. <br />
+네트워크에서 받아온 위치정보가 있으면 <code class="language-plaintext highlighter-rouge">setMarkerRetrieved()</code>로 지도상에 마커를 표시한다. <br />
+현재 위치정보를 표시해야 할 때는 <code class="language-plaintext highlighter-rouge">setMarkerCurrent()</code>를 사용한다. <br />
+네트워크 및 현재 위치정보 모두 존재하지 않을 경우 <code class="language-plaintext highlighter-rouge">setMarkerDefault()</code>로 하드코딩된 좌표를 이용해 마커를 찍는다. <br /></p>
+
+<p>문제점은 세 개의 메서드는 명칭만 다를 뿐, <em>‘불러온 좌표를 구글맵에 마커로 찍는다’</em>로 모두 같은 기능을 수행하는 것. <br />
+코드 역시 중복된다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">private</span> <span class="k">fun</span> <span class="nf">setMarkerRetrieved</span><span class="p">(</span><span class="n">latLng</span><span class="p">:</span> <span class="nc">LatLng</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">markerOptions</span> <span class="p">=</span> <span class="nc">MarkerOptions</span><span class="p">()</span>
+        <span class="n">markerOptions</span><span class="p">.</span><span class="nf">position</span><span class="p">(</span><span class="n">latLng</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="nf">getAddress</span><span class="p">(</span><span class="n">latLng</span><span class="p">))</span>
+            <span class="p">.</span><span class="nf">icon</span><span class="p">(</span>
+                <span class="nc">BitmapDescriptorFactory</span>
+                    <span class="p">.</span><span class="nf">defaultMarker</span><span class="p">(</span><span class="nc">BitmapDescriptorFactory</span><span class="p">.</span><span class="nc">HUE_ROSE</span><span class="p">)</span>
+            <span class="p">)</span>
+       
+        <span class="kd">val</span> <span class="py">marker</span> <span class="p">=</span> <span class="n">mGoogleMap</span><span class="o">?.</span><span class="nf">addMarker</span><span class="p">(</span><span class="n">markerOptions</span><span class="p">)</span>
+
+        <span class="n">marker</span><span class="o">?.</span><span class="n">tag</span> <span class="p">=</span> <span class="s">"MARKER_RETRIEVED"</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">setMarkerDefault</span><span class="p">(</span><span class="n">latLng</span><span class="p">:</span> <span class="nc">LatLng</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">markerOptions</span> <span class="p">=</span> <span class="nc">MarkerOptions</span><span class="p">()</span>
+        <span class="n">markerOptions</span><span class="p">.</span><span class="nf">position</span><span class="p">(</span><span class="nc">LatLng</span><span class="p">(</span><span class="n">latLng</span><span class="p">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">latLng</span><span class="p">.</span><span class="n">longitude</span><span class="p">))</span>
+            <span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s">"Default Place"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">icon</span><span class="p">(</span>
+                <span class="nc">BitmapDescriptorFactory</span>
+                    <span class="p">.</span><span class="nf">defaultMarker</span><span class="p">(</span><span class="nc">BitmapDescriptorFactory</span><span class="p">.</span><span class="nc">HUE_GREEN</span><span class="p">)</span>
+            <span class="p">)</span>
+    
+        <span class="kd">val</span> <span class="py">marker</span> <span class="p">=</span> <span class="n">mGoogleMap</span><span class="o">?.</span><span class="nf">addMarker</span><span class="p">(</span><span class="n">markerOptions</span><span class="p">)</span>
+
+        <span class="n">marker</span><span class="o">?.</span><span class="n">tag</span> <span class="p">=</span> <span class="s">"MARKER_DEFAULT"</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">setMarkerCurrent</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">markerOptions</span> <span class="p">=</span> <span class="nc">MarkerOptions</span><span class="p">()</span>
+        <span class="n">markerOptions</span><span class="p">.</span><span class="nf">position</span><span class="p">(</span>
+            <span class="nc">LatLng</span><span class="p">(</span>
+                <span class="n">mCurrentLocation</span><span class="o">?.</span><span class="n">latitude</span> <span class="o">?:</span> <span class="nc">Constants</span><span class="p">.</span><span class="nc">Map</span><span class="p">.</span><span class="nc">DEFAULT_LOCATION</span><span class="p">.</span><span class="n">latitude</span><span class="p">,</span>
+                <span class="n">mCurrentLocation</span><span class="o">?.</span><span class="n">longitude</span> <span class="o">?:</span> <span class="nc">Constants</span><span class="p">.</span><span class="nc">Map</span><span class="p">.</span><span class="nc">DEFAULT_LOCATION</span><span class="p">.</span><span class="n">longitude</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+            <span class="p">.</span><span class="nf">title</span><span class="p">(</span>
+                <span class="nf">getAddress</span><span class="p">(</span>
+                    <span class="nc">LatLng</span><span class="p">(</span>
+                        <span class="n">mCurrentLocation</span><span class="o">?.</span><span class="n">latitude</span> <span class="o">?:</span> <span class="nc">Constants</span><span class="p">.</span><span class="nc">Map</span><span class="p">.</span><span class="nc">DEFAULT_LOCATION</span><span class="p">.</span><span class="n">latitude</span><span class="p">,</span>
+                        <span class="n">mCurrentLocation</span><span class="o">?.</span><span class="n">longitude</span> <span class="o">?:</span> <span class="nc">Constants</span><span class="p">.</span><span class="nc">Map</span><span class="p">.</span><span class="nc">DEFAULT_LOCATION</span><span class="p">.</span><span class="n">longitude</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="p">.</span><span class="nf">icon</span><span class="p">(</span>
+                <span class="nc">BitmapDescriptorFactory</span>
+                    <span class="p">.</span><span class="nf">defaultMarker</span><span class="p">(</span><span class="nc">BitmapDescriptorFactory</span><span class="p">.</span><span class="nc">HUE_BLUE</span><span class="p">)</span>
+            <span class="p">)</span>
+      
+        <span class="kd">val</span> <span class="py">marker</span> <span class="p">=</span> <span class="n">mGoogleMap</span><span class="o">?.</span><span class="nf">addMarker</span><span class="p">(</span><span class="n">markerOptions</span><span class="p">)</span>
+
+        <span class="n">marker</span><span class="o">?.</span><span class="n">tag</span> <span class="p">=</span> <span class="s">"MARKER_CURRENT"</span>
+        <span class="n">mCurrentMarker</span> <span class="p">=</span> <span class="n">marker</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>중복된 내용의 여러개 메서드는 하나로 통합한다. <code class="language-plaintext highlighter-rouge">RETRIEVED/CURRENT/DEFAULT</code>의 상태에 따라 메서드의 내용이 약간씩 달라질 수 있기 때문에 <strong>Enum</strong> 상수를 추가해 분기처리한다. 정수 혹은 문자열 열거 패턴을 사용하는 대신 <strong>Enum</strong>을 채택한다. <br />
+<strong>정수 열거 패턴</strong>은 타입 안전을 보장하지 않고 가독성에도 좋지 않다. <strong>문자열 열거 패턴</strong>은 가독성은 괜찮으나 문자열 비교에서 성능 저하가 일어난다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="kd">class</span> <span class="nc">MapStatus</span> <span class="p">{</span>
+        <span class="nc">RETRIEVED</span><span class="p">,</span> <span class="nc">CURRENT</span><span class="p">,</span> <span class="nc">DEFAULT</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">fun</span> <span class="nf">setMarker</span><span class="p">(</span><span class="n">latLng</span><span class="p">:</span> <span class="nc">LatLng</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="nc">MapStatus</span><span class="p">,</span> <span class="n">markerColor</span><span class="p">:</span> <span class="nc">Float</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">title</span><span class="p">:</span> <span class="nc">String</span><span class="p">?</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">tag</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nc">MapStatus</span><span class="p">.</span><span class="nc">DEFAULT</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                <span class="s">"Default Place"</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                <span class="nf">getAddress</span><span class="p">(</span><span class="n">latLng</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kd">val</span> <span class="py">markerOptions</span> <span class="p">=</span> <span class="nc">MarkerOptions</span><span class="p">()</span>
+        <span class="n">markerOptions</span><span class="p">.</span><span class="nf">position</span><span class="p">(</span><span class="n">latLng</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">icon</span><span class="p">(</span>
+                <span class="nc">BitmapDescriptorFactory</span>
+                    <span class="p">.</span><span class="nf">defaultMarker</span><span class="p">(</span><span class="n">markerColor</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="kd">val</span> <span class="py">marker</span> <span class="p">=</span> <span class="n">mGoogleMap</span><span class="o">?.</span><span class="nf">addMarker</span><span class="p">(</span><span class="n">markerOptions</span><span class="p">)</span>
+
+        <span class="n">marker</span><span class="o">?.</span><span class="n">tag</span> <span class="p">=</span> <span class="n">tag</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">tag</span> <span class="p">==</span> <span class="nc">MapStatus</span><span class="p">.</span><span class="nc">CURRENT</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">mCurrentMarker</span> <span class="p">=</span> <span class="n">marker</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>기존보다 간략해지긴 했다. 그러나 매개변수를 <strong>3개</strong>나 받게 된다. 인자를 줄이는 연습을 해보자. Enum 인자에 markerColor를 추가하니, <code class="language-plaintext highlighter-rouge">setMarker()</code>는 두 개의 인자를 받게 되었다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">enum</span> <span class="kd">class</span> <span class="nc">MapStatus</span><span class="p">(</span><span class="kd">val</span> <span class="py">markerColor</span><span class="p">:</span> <span class="nc">Float</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nc">RETRIEVED</span><span class="p">(</span><span class="nc">BitmapDescriptorFactory</span><span class="p">.</span><span class="nc">HUE_ROSE</span><span class="p">),</span>
+        <span class="nc">CURRENT</span><span class="p">(</span><span class="nc">BitmapDescriptorFactory</span><span class="p">.</span><span class="nc">HUE_BLUE</span><span class="p">),</span>
+        <span class="nc">DEFAULT</span><span class="p">(</span><span class="nc">BitmapDescriptorFactory</span><span class="p">.</span><span class="nc">HUE_GREEN</span><span class="p">);</span>
+    <span class="p">}</span>   
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">fun</span> <span class="nf">setMarker</span><span class="p">(</span><span class="n">latLng</span><span class="p">:</span> <span class="nc">LatLng</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="nc">MapStatus</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="kd">val</span> <span class="py">title</span><span class="p">:</span> <span class="nc">String</span><span class="p">?</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">tag</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nc">MapStatus</span><span class="p">.</span><span class="nc">DEFAULT</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                <span class="s">"Default Place"</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                <span class="nf">getAddress</span><span class="p">(</span><span class="n">latLng</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kd">val</span> <span class="py">markerOptions</span> <span class="p">=</span> <span class="nc">MarkerOptions</span><span class="p">()</span>
+        <span class="n">markerOptions</span><span class="p">.</span><span class="nf">position</span><span class="p">(</span><span class="n">latLng</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">icon</span><span class="p">(</span>
+                <span class="nc">BitmapDescriptorFactory</span>
+                    <span class="p">.</span><span class="nf">defaultMarker</span><span class="p">(</span><span class="n">tag</span><span class="p">.</span><span class="n">markerColor</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="kd">val</span> <span class="py">marker</span> <span class="p">=</span> <span class="n">mGoogleMap</span><span class="o">?.</span><span class="nf">addMarker</span><span class="p">(</span><span class="n">markerOptions</span><span class="p">)</span>
+
+        <span class="n">marker</span><span class="o">?.</span><span class="n">tag</span> <span class="p">=</span> <span class="n">tag</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">tag</span> <span class="p">==</span> <span class="nc">MapStatus</span><span class="p">.</span><span class="nc">CURRENT</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">mCurrentMarker</span> <span class="p">=</span> <span class="n">marker</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="후기">후기</h4>
+<ul>
+  <li>난이도 최하 수준의 코드 정리 (리팩토링이라는 용어를 사용하기에 민망한 수준)</li>
+  <li>메서드는 단 하나의 기능만을 가지고 있어야 하나, <code class="language-plaintext highlighter-rouge">setMarker()</code>은 Marker의 title을 정하기, MarkerOptions 설정, Marker를 지도 상에 표시 등 적어도 3개의 기능을 지닌다. 간단한 덧셈에서도 연산 메서드와 반환 메서드 따로 분리를 해야 코드 재사용성이 높아진다고 들었다. 어떻게 기능 분리를 할 지 고민해봐야 할듯.</li>
+</ul>
+
+:ET
