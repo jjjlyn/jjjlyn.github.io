@@ -824,10 +824,10 @@ center {
 }
 
 .tag {
-  margin-right: 1rem;
+  margin-right: 0.7rem;
   font-weight: bold;
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: var(--material-pink-900);
   background-color: transparent;
   opacity: 0.6;
