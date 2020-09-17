@@ -43,7 +43,7 @@ HTTP는 어떤 컨텐츠를 응답으로 가져오든 맨 위에 항상 header�
 HTTP method name -> tells the server the kind of request that's being made
 
 POST is a powerful request that is like a GET plus plus. With POST, you can request something and at the same time send form data to the server. 
-물론 GET으로도 소량의 데이터를 전송할 수 있따. 그러나 이 방식은 사용하지 않기를 권한다. 
+물론 GET으로도 소량의 데이터를 전송할 수 있다. 그러나 이 방식은 사용하지 않기를 권한다. 
 -> The total amount of characters in a GET is really limited. Input box에 long passage를 넣으면 GET이 작동을 안할 수 있다.
 -> GET은 내가 전송하려는 데이터를 URL에 append한다. 그렇기 때문에 내가 전송하려는 데이터가 모두 노출된다. '?'은 경로(path)와 parameters(the extra data)를 구분한다.
 -> 이 두 가지 이유 때문에 사용자는 POST를 사용하면 form submission을 bookmark 할 수 없다(?). You may or may not want users to be able to bookmark the resulting request from a form submission. 
@@ -86,7 +86,7 @@ Resource: 요청된 컨텐츠의 명칭. HTML 페이지, 서블릿, 이미지, P
 
 인터넷 웹(HTTP) 서버 `소프트웨어`는 기본적으로 포트 80번에서 돌아간다. 
 Using one server app per port, a server can have up to 65536 different server apps running. 포트는 서버 하드웨어 위에서 돌아가는 서버 어플리케이션에 대한 논리적인(물리적인게 아닌) 연결(?)이라고 볼 수 있다. 하나의 서버 어플리케이션(HTTP, HTTPS, POP3, FTP, Telnet, SMTP, Time 등)은 각각 하나의 포트를 이용한다. 포트는 0부터 65535까지 쓸 수 있고, 0부터 1023까지는 잘 알려진 서버 어플리케이션이 사용하고 있기 때문에(i.e. FTP, Telnet, SMTP...) custom web server application을 연결하고 싶으면 그 이후 포트를 사용해야 할 것(사실 난 이게 뭔 소린지를 아직 잘 모르겠다.) 10.10.5.2:8075은 무엇을 의미하는가? 
-포트 번호가 없으면 서버는 클라이언트가 어떤 웹 어플리케이션을 이용하고 싶은지 알 턱이 없음. 그리고 각각의 서버 어플리케이션은 고유한 `프로토콜`을 가지고 있기 때문에, 포트 번호라는 식별자가 없으면 문제가 생긴다. 포트 번호를 설정할 때 어떤 프로토콜을 이용할 것인지도 설정해주나? 그렇다면 10.10.5.2:8075에서 10.10.5.2 호스트 서버의 8075번을 열어줬을 때 HTTP 프로토콜로 통신하도록 사전 세팅해 놨겠지. 그렇기 때문ㅁ에 8075번 포트가 어떤 프로토콜을 사용하는지 알 수 있는 것이다. HTTP프로토콜 대신 다른 프로토콜을 사용할 때 웹 브라우저에서는 접근 못함(웹 브라우저는 서버와 HTTP 프로토콜로만 통신하기 때문에 규약이 안 맞으면 아무것도 할 수 없다.)
+포트 번호가 없으면 서버는 클라이언트가 어떤 웹 어플리케이션을 이용하고 싶은지 알 턱이 없음. 그리고 각각의 서버 어플리케이션은 고유한 `프로토콜`을 가지고 있기 때문에, 포트 번호라는 식별자가 없으면 문제가 생긴다. 포트 번호를 설정할 때 어떤 프로토콜을 이용할 것인지도 설정해주나? 그렇다면 10.10.5.2:8075에서 10.10.5.2 호스트 서버의 8075번을 열어줬을 때 HTTP 프로토콜로 통신하도록 사전 세팅해 놨겠지. 그렇기 때문에 8075번 포트가 어떤 프로토콜을 사용하는지 알 수 있는 것이다. HTTP프로토콜 대신 다른 프로토콜을 사용할 때 웹 브라우저에서는 접근 못함(웹 브라우저는 서버와 HTTP 프로토콜로만 통신하기 때문에 규약이 안 맞으면 아무것도 할 수 없다.)
 예를 들어 웹 브라우저가 HTTP를 프로토콜로 사용하는 웹 서버 대신 110포트를 사용하는 POP3 메일 서버에 landed했다고 가정하자. 이 메일 서버는 HTTPRequest를 파싱하는 방법을 모를 것이다. 또한 POP3 서버는 응답으로 HTML 페이지를 리턴해주는 방법도 모른다. 
 내가 만약에 웹 어플리케이션을 회사 네트워크에서 돌린다면, 시스템 관리자에 가서 어떤 포트 번호가 이미 사용되고 있는지를 파악해야 한다. 예를 들어 시스템 관리자는 3000 이하로는 포트 번호를 사용하지 말라고 알려줄 수 있다. 
 
