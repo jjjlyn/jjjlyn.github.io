@@ -58,7 +58,7 @@ Once the IP address of the computer(where your website information is there) is 
 To transfer data packets btw your computer(client) and the server, it is important to have a TCP connection established. A connection is built between two using a process called 'TCP 3-way handshake'. This is a three-step process where the client and the server exchange SYN(synchronize) and ACK(acknowledge) messages to establish a connection.
 
 A. A client computer sends a `SYN message` means, whether second computer is open for new connection or not. (Sends a SYN packet asking if it is open for new connections)
-B. Then another computer, if open for new connection, it sends `acknowledge message` with `SYN message` as well. (If the server has open oprts that can accept and initiate new connections, it'll respond with an ACK of the SYN packet using a SYN/ACK packet.)
+B. Then another computer, if open for new connection, it sends `acknowledge message` with `SYN message` as well. (If the server has open port that can accept and initiate new connections, it'll respond with an ACK of the SYN packet using a SYN/ACK packet.)
 C. After this, first computer receives its message and acknowledge by sending an `ACK message`. 
 => Then a TCP connection is established for data transmission
 
@@ -67,7 +67,7 @@ The browser sends an HTTP request to the web server. The browser will send a GET
 Responses contain every information that you requested like web page, status-code, cache-control, etc. Now the browser renders the content that has been requested.
 
 6. The server handles the request and sends back a response.
-The server contains a `webserver`(i.e. Apache) that receives the request from the browser and passes it to a `request handler` to read and generate a response. The request handler is a program written in ASP.NET, PHP, Ruby, etc that reads the request, its headers, and cookies to check what is being requested, and also update the info on the server if needed. Then it will `assemble a response` in a particular format(`JSON, XML, HTML`).
+The server contains a `webserver`(i.e. Apache) that receives the request from the browser and passes it to a `request handler` to read and generate a response. The request handler is a program written in ASP, NET, PHP, Ruby, etc that reads the request, its headers, and cookies to check what is being requested, and also update the info on the server if needed. Then it will `assemble a response` in a particular format(`JSON, XML, HTML`).
 
 7. The server sends out an HTTP response.
 The server response contains the web page you requested as well as the status code, compression type(Content-Encoding), how to cache the page(Cache-Control), any cookies to set, privacy info, etc.
