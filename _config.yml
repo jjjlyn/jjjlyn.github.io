@@ -19,7 +19,7 @@ paginate: 5
 
 navigation:
 - title: Posts
-  url: /index.html
+  url: /
 - title: About
   url: /about/
 - title: Tags
