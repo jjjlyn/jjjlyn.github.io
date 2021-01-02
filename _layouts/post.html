@@ -23,9 +23,11 @@ comments: true
 
   {{ content }}
 
-  {% if site.comments.disqus.shortname %}
+  {% include utterances.html %}
+
+  <!-- {% if site.comments.disqus.shortname %}
   {% include disqus_comments.html %}
-  {% endif %}
+  {% endif %} -->
 
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
