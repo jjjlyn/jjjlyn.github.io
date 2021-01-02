@@ -1,4 +1,0 @@
-로컬에서 branch를 새로 딸 때는 로컬 branch의 위치를 develop에 가게 해 놓고 , 그 상태에서
-Git checkout -b [새 브랜치 명]
-이렇게 실행해야 함
-그래야 각 feature의 덮어씌워짐 현상을 막을 수 있다.

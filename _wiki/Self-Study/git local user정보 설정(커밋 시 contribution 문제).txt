@@ -1,6 +1,0 @@
-git config --local --list
-각 Repository의 local configuration은 global configuration보다 우위 설정을 가진다. 
-각 repository의 local configuration의 user.name, user.email을 먼저 설정해주자.
-
-> git config --local user.name "jjjlyn"
-> git config --local user.email "prize1142@gmail.com"
