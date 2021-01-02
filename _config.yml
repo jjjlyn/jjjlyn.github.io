@@ -27,13 +27,13 @@ navigation:
 - title: Diary
   url: /diary/  
 
-discus_url: https://https-jjjlyn-github-io.disqus.com/
-discus_id: disqus_4l6bHJqYlN
+# discus_url: https://https-jjjlyn-github-io.disqus.com/
+# discus_id: disqus_4l6bHJqYlN
 
-comments:
-  provider : "disqus"
-  disqus:
-    shortname : "jjjlyn" 
+# comments:
+  # provider : "disqus"
+  # disqus:
+    # shortname : "jjjlyn" 
 
 social:
   github: jjjlyn
