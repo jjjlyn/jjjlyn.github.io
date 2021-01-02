@@ -1,11 +1,13 @@
 .idea
 .vscode
 .DS_Store
-.wiki
+_wiki
 _site
 _drafts
 .vimrc
 .jekyll-cache
+.sass-cache
+.jekyll-metadata
 
 
 
