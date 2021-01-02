@@ -1,12 +1,11 @@
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-/.jekyll-cache
-/.vscode
-/_drafts
-/_site
+.idea
+.vscode
+.DS_Store
+.wiki
+_site
+_drafts
+.vimrc
+.jekyll-cache
+
 
 
