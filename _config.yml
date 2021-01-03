@@ -18,8 +18,6 @@ navigation:
   url: /about/
 - title: Tags
   url: /tags/
-- title: Diary
-  url: /diary/  
 
 sass:
   sass_dir: _sass
