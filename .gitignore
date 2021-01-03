@@ -4,10 +4,8 @@
 _wiki
 _site
 _drafts
+node_modules
 .vimrc
 .jekyll-cache
-.sass-cache
 .jekyll-metadata
-
-
-
+.sass-cache
