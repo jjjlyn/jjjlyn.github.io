@@ -10,3 +10,8 @@ css/*.css
 .jekyll-cache
 .jekyll-metadata
 .sass-cache
+Gemfile
+Gemfile.lock
+gulpfile.js
+package.json
+package-lock.json
