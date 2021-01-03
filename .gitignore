@@ -5,7 +5,7 @@ _wiki
 _site
 _drafts
 node_modules
-css/*.css
+# css/*.css
 .vimrc
 .jekyll-cache
 .jekyll-metadata
