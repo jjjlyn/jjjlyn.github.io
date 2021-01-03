@@ -10,7 +10,7 @@ html {
 }
 
 body {
-	font-family: $serif;
+	font-family: $sans-serif;
 	line-height: 1.75;
 	font-size: 112.5%; // 18px base font size
 	color: $black;
@@ -44,6 +44,10 @@ img,video,audio,iframe,object{
 	padding: 0 20px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.hidden {
+	display: none;
 }
 
 
@@ -177,7 +181,6 @@ HEADER STYLING
 
 .header {
 	background-color: $background-color;
-	background-image: url('../img/touring.jpg');
 	background-size: cover;
 	background-position: center center;
 	color: white;
@@ -271,6 +274,18 @@ POST STYLING
 			display: block;
 		}
 	}
+
+	.tagContainer{
+		margin: 1rem auto;
+		display: flex;
+		justify-content: center;
+	  
+		.tag {
+		  text-align: center;
+		  min-width: 15%;
+		  font-style: italic;
+		}
+	  }
 
 	img {
 		margin-bottom: 2rem;
@@ -443,11 +458,11 @@ PAGINATION STYLING
 
 .pagination {
 	.next {
-		float: left;
+		float: right;
 	}
 
 	.previous {
-		float: right;
+		float: left;
 	}
 }
 

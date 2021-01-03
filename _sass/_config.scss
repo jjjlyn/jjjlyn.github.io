@@ -12,21 +12,21 @@ $green: #2ECC40;
 $olive: #3D9970;
 $lime:  #01FF70;
 // Warm
-$yellow:  #FFDC00;
+$yellow:  #FFF3E0;
 $orange:  #FF851B;
 $red:     #FF4136;
 $fuchsia: #F012BE;
 $purple:  #B10DC9;
 $maroon:  #85144B;
-// Gray Scale
+// Gray ScaleF
 $white:  #fff;
 $silver: #ddd;
 $grey:   #aaa;
 $black:  #111;
 
 // Color variables
-$primary-color: seagreen;
-$secondary-color: #233E5B;
+$primary-color: #333333;
+$secondary-color: #666666;
 $tertiary-color: #aaa;
 $link-color: $primary-color;
 $background-color: $primary-color;
@@ -53,6 +53,6 @@ TYPE SETTINGS
 ***************/
 
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Nanum Gothic", "Roboto", "Segoe UI",
+$sans-serif: "Nanum Gothic", "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+$monospace: "Lucida Console", monospace !default;
