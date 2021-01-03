@@ -11,6 +11,8 @@ markdown: kramdown
 highlighter: rouge
 paginate: 5
 
+future: true
+
 navigation:
 - title: Posts
   url: /
