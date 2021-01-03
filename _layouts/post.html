@@ -10,7 +10,7 @@ comments: true
   </p>
 
   {% if page.tags %}
-  <div class="tagList" style="display: flex; justify-content: start;">
+  <div class="tagContainer" style="justify-content: left;">
     {% for tag in page.tags %}
       {% if site.data.tags contains tag %}
       <div class="tag">

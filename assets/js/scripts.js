@@ -22,7 +22,7 @@ $("[data-tag]").click((e) => {
   
   function filterByTagName(tagName) {
 	$('.hidden').removeClass('hidden');
-	$('.post-wrapper').each((index, elem) => {
+	$('.postWrapper').each((index, elem) => {
 	  if (!elem.hasAttribute(`data-${tagName}`)) {
 		$(elem).addClass('hidden');
 	  }
