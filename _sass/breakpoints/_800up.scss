@@ -6,16 +6,6 @@ body {
   font-size: 125%;
 }
 
-.prev {
-	float: left;
-	text-align: left;
-}
-
-.next {
-	float: right;
-	text-align: right;
-}
-
 .content {
 	padding-top: 0;
 	position: relative;
@@ -43,9 +33,6 @@ body {
 	padding: 0;
 }
 
-.hidden {
-	display: none;
-}
 
 /***************
 HOMEPAGE STYLING

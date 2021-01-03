@@ -1,0 +1,28 @@
+.hidden {
+	display: none;
+}
+
+.gist {
+	.blob-wrapper table {
+		border-collapse: unset !important;
+	}
+
+	.blob-code-inner{ 
+		line-height: 1.5em !important;
+		font-size:16px !important; 
+	}
+
+	.gist-meta {
+		background-color: $light-yellow !important;
+	}
+} 
+
+.prev {
+	float: left;
+	text-align: left;
+}
+
+.next {
+	float: right;
+	text-align: right;
+}
