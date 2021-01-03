@@ -1,5 +1,5 @@
-title: jjjlyn tech blog
-description: 잊어버리지 않게 기록해두는 잡지식 창고
+title: 요붕이
+description: 창고95
 
 url: https://jjjlyn.github.io
 baseurl: ""
@@ -10,12 +10,6 @@ encoding: UTF-8
 markdown: kramdown
 highlighter: rouge
 paginate: 5
-
-# navigation:
-#   - title: Posts
-#     url: /index.html
-#   - title: About
-#     url: /about
 
 navigation:
 - title: Posts
@@ -28,7 +22,7 @@ navigation:
   url: /diary/  
 
 sass:
-  sass_dir: assets/scss
+  sass_dir: _sass
 
 # discus_url: https://https-jjjlyn-github-io.disqus.com/
 # discus_id: disqus_4l6bHJqYlN
@@ -56,7 +50,7 @@ defaults:
       share: true
       related: true      
 
-# gems: ['jekyll-paginate']
+gems: ['jekyll-paginate']
 plugins: ['jekyll-paginate']
 languages: ['ko','en']
 default_lang: 'ko'
