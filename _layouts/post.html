@@ -6,7 +6,7 @@ comments: true
   <h1 class="postTitle">{{ page.title }}</h1>
   <p class="meta">{{ page.date | date: '%B %d, %Y' }} | <span
       class="time">{{ page.content | number_of_words | divided_by:180 }}</span> Minute Read
-    {% if page.comments %} • <a href="https://jjjlyn.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}
+    <!-- {% if page.comments %} • <a href="https://jjjlyn.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %} -->
   </p>
 
   {% if page.tags %}
