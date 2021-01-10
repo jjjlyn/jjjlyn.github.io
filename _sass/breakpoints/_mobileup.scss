@@ -2,48 +2,68 @@
 GLOBAL STYLES
 ***************/
 
+#menu-toggle {
+  background-color: transparent;
+  border: 0;
+  color: #818181;
+  display: block;
+  float: left;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 0;
+  position: relative;
+}
+
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+
+// *,
+// *:before,
+// *:after {
+//   box-sizing: inherit;
+// }
 
 body {
-	font-family: $sans-serif;
-	line-height: 1.75;
-	font-size: 112.5%; // 18px base font size
-	color: $black;
-	overflow-x: hidden;
+  font-family: $lato;
+  line-height: 1.75;
+  font-size: 112.5%; // 18px base font size
+  color: $black;
+  overflow-x: hidden;
   margin: 0;
 
-	p , ul {
-		margin: 0 0 2rem;
-	}
+  p,
+  ul {
+    margin: 0 0 2rem;
+  }
 }
 
 // Text Selection Styling
 ::-moz-selection {
-	background: $primary-color;
-	color: white;
+  background: $primary-color;
+  color: white;
 }
 
 ::selection {
-	background: $primary-color;
-	color: white;
+  background: $primary-color;
+  color: white;
 }
 
 // Media Styling
-img,video,audio,iframe,object{
-	max-width:100%;
+img,
+video,
+audio,
+iframe,
+object {
+  max-width: 100%;
 }
 
 // Layout
 .container {
   max-width: 610px;
-	padding: 0 20px;
-	margin-left: auto;
-	margin-right: auto;
+  padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /***************
@@ -51,42 +71,41 @@ LINK STYLING
 ***************/
 
 a {
-	color: $link-color;
+  color: $link-color;
 
-	&:hover {
-		color: darken($link-color, 15%);
-	}
+  &:hover {
+    color: darken($link-color, 15%);
+  }
 }
-
 
 /***************
 MENU STYLING
 ***************/
 
 .nav-collapse {
-	z-index: 1;
+  z-index: 1;
 
-	ul {
-	  margin: 0;
-	  padding: 0;
-	  width: 100%;
-	  display: block;
-	  list-style: none;
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+    list-style: none;
 
-		li {
-		  width: 100%;
-		  display: block;
-		  background: $background-color;
-		  border-bottom: 2px solid lighten($background-color, 5%);
+    li {
+      width: 100%;
+      display: block;
+      background: $background-color;
+      border-bottom: 2px solid lighten($background-color, 5%);
 
-		  a {
-		  	color: white;
-		  	text-decoration: none;
-		  	display: block;
-		  	padding: 5px 2rem;
-		  }
-		}
-	}
+      a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 5px 2rem;
+      }
+    }
+  }
 }
 
 .js .nav-collapse {
@@ -105,7 +124,7 @@ MENU STYLING
 }
 
 .nav-toggle {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -114,10 +133,10 @@ MENU STYLING
   user-select: none;
   float: right;
   line-height: 2em;
-  margin-top: .5em;
+  margin-top: 0.5em;
   background-color: $background-color;
   border-radius: 4px;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   color: white;
   text-decoration: none;
   position: relative;
@@ -125,28 +144,27 @@ MENU STYLING
   transition: all 0.2s ease-in-out;
 
   &:hover {
-  	color: white;
-  	background-color: darken($background-color, 10%);
+    color: white;
+    background-color: darken($background-color, 10%);
   }
 }
-
 
 /***************
 LIST STYLING
 ***************/
 
 .noList {
-	list-style:none;
-	padding-left:0;
-	margin-left:0;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 dt {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 dd {
-	margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .post ul ul,
@@ -156,349 +174,341 @@ dd {
   margin: 0;
 }
 
-
 /***************
 PAGE STYLES
 ***************/
 
 .pageTitle {
-	margin: 2rem auto 1em;
-	text-align: center;
+  margin: 2rem auto 1em;
+  text-align: center;
 }
 
 .content {
-	padding-top: 1em;
+  padding-top: 1em;
 }
 
 /***************
 HEADER STYLING
 ***************/
 
-.header {
-	background-color: $background-color;
-	background-size: cover;
-	background-position: center center;
-	color: white;
-	padding: 0;
-	height: 3em;
+// .header {
+//   background-size: cover;
+//   background-position: center center;
+//   color: white;
+//   padding: 0;
+//   height: 3em;
 
-	.container {
-		padding: 0;
-    max-width: 100%;
-	}
+//   .container {
+//     padding: 0;
+//     max-width: 100%;
+//   }
 
-	h1 {
-		margin: 0;
-		float: left;
-		padding-left: 2rem;
-		font-size: 1em;
-		line-height: 3em;
-		font-family: $sans-serif;
-		font-weight: 800;
-		text-transform: uppercase;
+//   h1 {
+//     margin: 0;
+//     float: left;
+//     padding-left: 2rem;
+//     font-size: 1em;
+//     line-height: 3em;
+//     font-family: $lato;
+//     font-weight: 800;
+//     text-transform: uppercase;
 
-		a {
-			color: white;
-			text-decoration: none;
-		}
-	}
-}
-
+//     a {
+//       color: white;
+//       text-decoration: none;
+//     }
+//   }
+// }
 
 /***************
 POST STYLING
 ***************/
 
 .post {
+  .postTitle {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 
-	.postTitle {
-		text-align: center;
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-	}
+  blockquote {
+    clear: both;
+    margin: 2.5em 0;
+    padding: 0;
+    line-height: 1.8;
+    position: relative;
 
-	blockquote {
-		clear: both;
-		margin: 2.5em 0;
-		padding: 0;
-		line-height: 1.8;
-		position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -1.25em;
+      background: $background-color;
+      display: block;
+      height: 2px;
+      width: 150px;
+      left: calc(50% - 75px);
+    }
 
-		&:before {
-			content: "";
-			position: absolute;
-			top: -1.25em;
-			background: $background-color;
-			display: block;
-			height: 2px;
-			width: 150px;
-			left: calc(50% - 75px);
-		}
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -1.25em;
+      background: $background-color;
+      display: block;
+      height: 2px;
+      width: 150px;
+      left: calc(50% - 75px);
+    }
+  }
 
-		&:after {
-			content: "";
-			position: absolute;
-			bottom: -1.25em;
-			background: $background-color;
-			display: block;
-			height: 2px;
-			width: 150px;
-			left: calc(50% - 75px);
-		}
-	}
+  .meta {
+    text-align: center;
+    color: lighten(black, 50%);
+    font-family: $lato;
+    font-weight: 300;
+  }
 
-	.meta {
-		text-align: center;
-		color: lighten(black, 50%);
-		font-family: $sans-serif;
-		font-weight: 300;
-	}
+  figure {
+    margin: 3rem 0;
 
-	figure {
-		margin: 3rem 0;
+    figcaption {
+      text-align: center;
+      font-size: 0.9em;
+      font-style: italic;
+      color: lighten($black, 30%);
+    }
 
-		figcaption {
-			text-align: center;
-			font-size: .9em;
-			font-style: italic;
-			color: lighten($black, 30%);
-		}
+    img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
 
-		img {
-			margin: 0 auto;
-			display: block;
-		}
-	}
+  .tagContainer {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
 
-	.tagContainer{
-		margin: 1rem auto;
-		display: flex;
-		justify-content: center;
-	  
-		.tag {
-		  text-align: center;
-		  min-width: 15%;
-		  font-style: italic;
-		}
-	  }
+    .tag {
+      text-align: center;
+      min-width: 15%;
+      font-style: italic;
+    }
+  }
 
-	img {
-		margin-bottom: 2rem;
-	}
+  img {
+    margin-bottom: 2rem;
+  }
 
-	.highlight {
-		clear: both;
-		margin-bottom: 2rem;
-	}
+  .highlight {
+    clear: both;
+    margin-bottom: 2rem;
+  }
 
-	.dropcap {
-		color: $primary-color;
-		margin-right: .45rem;
-	}
+  .dropcap {
+    color: $primary-color;
+    margin-right: 0.45rem;
+  }
 
-	.featuredImage {
-		position: relative;
-		margin-top: 2rem;
+  .featuredImage {
+    position: relative;
+    margin-top: 2rem;
 
-		img {
-			margin-bottom: 0;
-		}
-	}
+    img {
+      margin-bottom: 0;
+    }
+  }
 }
-
 
 /***************
 POST NAV STYLING
 ***************/
 
 .postNav {
-	border-top: 1px solid darken(white, 10%);
-	border-bottom: 1px solid darken(white, 10%);
-	overflow: hidden;
+  border-top: 1px solid darken(white, 10%);
+  border-bottom: 1px solid darken(white, 10%);
+  overflow: hidden;
 
-	.prev, .next {
-		display: block;
-		width: 100%;
-		height: 5rem;
-		overflow: hidden;
-		position: relative;
-		font-family: $sans-serif;
-		font-weight: 800;
-		font-size: .9em;
-		text-transform: uppercase;
-		text-align: center;
+  .prev,
+  .next {
+    display: block;
+    width: 100%;
+    height: 5rem;
+    overflow: hidden;
+    position: relative;
+    font-family: $lato;
+    font-weight: 800;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    text-align: center;
 
-		img {
-			z-index: 1;
-			display: block;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			left: 0;
-			width: 100%;
-			height: auto;
-		}
+    img {
+      z-index: 1;
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
 
-		span {
-			z-index: 10;
-			position: relative;
-			padding: .5rem;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 100%;
-			line-height: 1.4;
-		}
+    span {
+      z-index: 10;
+      position: relative;
+      padding: 0.5rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      line-height: 1.4;
+    }
 
-		&.image {
-			text-decoration: none;
-			color: white;
-			text-shadow: 1px 1px 3px rgba(0,0,0,.8);
-			padding: 0 .5rem;
-			position: relative;
-			transition: all 0.2s ease-in-out;
-		}
+    &.image {
+      text-decoration: none;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      padding: 0 0.5rem;
+      position: relative;
+      transition: all 0.2s ease-in-out;
+    }
 
-		&:hover {
-			&.image {
-				opacity: .8;
-			}
-		}
-	}
+    &:hover {
+      &.image {
+        opacity: 0.8;
+      }
+    }
+  }
 
-	.prev {
-		span {
-			left: 0;
-		}
-	}
+  .prev {
+    span {
+      left: 0;
+    }
+  }
 
-	.next {
-		span {
-			right: 0;
-		}
-	}
+  .next {
+    span {
+      right: 0;
+    }
+  }
 }
-
 
 /***************
 FOOTER STYLING
 ***************/
 
 .footer {
-	text-align: center;
-	padding: 2rem 0;
-	clear: both;
+  text-align: center;
+  padding: 2rem 0;
+  clear: both;
 
-	.container {
-		border-top: 4px solid darken(white, 15%);
-		padding-top: .5em;
+  .container {
+    border-top: 4px solid darken(white, 15%);
+    padding-top: 0.5em;
     max-width: 90%;
-	}
+  }
 
-	.copy, .footer-links {
-		font-size: .8em;
-	}
+  .copy,
+  .footer-links {
+    font-size: 0.8em;
+  }
 
-	.copy {
-		margin-bottom: 1rem;
-	}
+  .copy {
+    margin-bottom: 1rem;
+  }
 
-	&-links {
-		ul {
-			text-align: center;
+  &-links {
+    ul {
+      text-align: center;
 
-			li {
-				display: inline-block;
+      li {
+        display: inline-block;
 
-				a {
-					display: inline-block;
-					width: 30px;
-					height: 30px;
-					transition: all 0.2s ease-in-out;
+        a {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          transition: all 0.2s ease-in-out;
 
-					svg {
-						display: block;
-						width: 100%;
-						height: 100%;
+          svg {
+            display: block;
+            width: 100%;
+            height: 100%;
 
-						.outer-shape {
-							fill: $primary-color;
-						}
+            .outer-shape {
+              fill: $primary-color;
+            }
 
-						.inner-shape {
-							fill: white;
-						}
-					}
-				}
+            .inner-shape {
+              fill: white;
+            }
+          }
+        }
 
-
-				&:hover {
-					a {
-						svg {
-							.outer-shape {
-								fill: darken($primary-color, 10%);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+        &:hover {
+          a {
+            svg {
+              .outer-shape {
+                fill: darken($primary-color, 10%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
-
 
 /***************
 PAGINATION STYLING
 ***************/
 
 .pagination {
-	.next {
-		float: right;
-	}
+  .next {
+    float: right;
+  }
 
-	.previous {
-		float: left;
-	}
+  .previous {
+    float: left;
+  }
 }
-
 
 /***************
 POST LIST STYLING
 ***************/
 
 .posts {
-	li {
-		margin-bottom: 4rem;
-		position: relative;
+  li {
+    margin-bottom: 4rem;
+    position: relative;
 
-		&:before {
-			content: "";
-			position: absolute;
-			bottom: -2rem;
-			left: 0;
-			background: darken(white, 10%);
-			height: 2px;
-			width: 60px;
-		}
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -2rem;
+      left: 0;
+      background: darken(white, 10%);
+      height: 2px;
+      width: 60px;
+    }
 
-		a {
-			text-decoration: none;
+    a {
+      text-decoration: none;
 
-			&:hover {
-				text-decoration: underline;
-			}
-		}
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
-		.date {
-			color: lighten(black, 50%);
-			font-family: $sans-serif;
-			font-weight: 300;
-			font-size: .8em;
-		}
+    .date {
+      color: lighten(black, 50%);
+      font-family: $lato;
+      font-weight: 300;
+      font-size: 0.8em;
+    }
 
-		h3 {
-			margin: 0 0 .5em;
-		}
-	}
+    h3 {
+      margin: 0 0 0.5em;
+    }
+  }
 }
-

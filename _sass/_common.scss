@@ -1,3 +1,25 @@
+
+.inner:after,
+.nav-menu:after,
+.entry-header:after,
+.entry-content:after,
+.social-links:after {
+	clear: both;
+}
+
+.inner:before,
+.inner:after,
+.nav-menu:before,
+.nav-menu:after {
+	content: "";
+	display: table;
+}
+
+.full-width {
+    clear: both;
+    margin: 6px -80px 24px;
+}
+
 .hidden {
 	display: none;
 }

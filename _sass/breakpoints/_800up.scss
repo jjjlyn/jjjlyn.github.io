@@ -3,224 +3,287 @@ GLOBAL STYLES
 ***************/
 
 body {
+  background-color: $primary-color;
+  color: black;
+  line-height: 1.8;
+  word-spacing: 0.05em;
   font-size: 125%;
 }
 
-.content {
-	padding-top: 0;
-	position: relative;
-	// z-index: 1;
-
-	&:after {
-		z-index: -1; 
-		background: white;
-		content: ""; 
-		display: block;
-		width: 100%;
-		height: 10em;
-		position: absolute;
-		top: -2em;
-		left: 0;
-		transform: skewY(-2deg);
-		transform-origin: bottom left; 
-	}
-}
-
-.container {
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
-	padding: 0;
-}
-
+// .container {
+//   max-width: 880px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding: 0;
+// }
 
 /***************
 HOMEPAGE STYLING
 ***************/
 
 #home {
-	.posts, .pageTitle, .pagination {
+  .posts,
+  .pageTitle,
+  .pagination {
     width: 75%;
-		float: none;
-		margin: 0 auto 1.5em;
-	}
+    float: none;
+    margin: 0 auto 1.5em;
+  }
 
-	.pageTitle {
-		margin: 2rem auto 1em;
-	}
+  .pageTitle {
+    margin: 2rem auto 1em;
+  }
 }
 
-
-/***************
-HEADER STYLING
-***************/
-
-.header {
-	height: 8em;
-	position: relative;
-	// padding-bottom: 2em;
-
-	.container {
-		position: relative;
-		top: 20%;
-		// transform: translateY(-50%);
-		max-width: 1000px;
-		overflow: hidden;
-	}
-
-	h1 {
-		font-size: 3em;
-		line-height: 1;
-		letter-spacing: -3px;
-		padding-left: 0;
-	}
-
-	nav {
-		float: left;
-		clear: left;
-
-		ul {
-			margin: 0;
-			li {
-				display: inline;
-				line-height: 3em;
-				background: none;
-				padding: 0 5px;
-				border: none;
-
-				a {
-					color: $white;
-					font-size: .9em;
-					text-decoration: none;
-					padding: 0 .25em;
-
-					&:hover {
-						color: darken(white, 20%);
-					}
-				}
-
-				&.current {
-					padding-bottom: .25em;
-					border-bottom: 4px solid $tertiary-color; 
-				}
-			}
-		}
-	}
+.site-navigation,
+.site-header,
+.site-content,
+.site-footer {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
+.inner {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/**
+ * 1. Site Navigation
+ * --------------------------------------------
+ */
+
+.site-navigation {
+  background: lighten($primary-color, 4%);
+}
+
+.site-navigation .inner {
+  position: relative;
+}
+
+.nav-menu {
+  padding-right: 60px;
+}
+
+.nav-menu ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 16px 0;
+  position: relative;
+}
+
+.nav-menu a {
+  border-left: 2px solid $tundora;
+  color: $grey;
+  display: block;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-menu li:first-child > a {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.nav-menu li:hover > a,
+.nav-menu .nav-current > a {
+  color: $lime;
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1;
+  letter-spacing: -3px;
+  padding-left: 0;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/**
+ * 2. Site Header
+ * --------------------------------------------
+ */
+
+.site-header {
+  padding-bottom: 75px;
+  padding-top: 70px;
+}
+
+.site-title {
+  font-size: 48px;
+  float: left;
+  line-height: 1;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.site-title a {
+  color: $white;
+  display: block;
+  text-decoration: none;
+}
+
+.site-title a:hover {
+  color: lighten($lime, 11%);
+}
+
+.site-title .logo-text {
+  border-left: 10px solid $lime;
+  padding-left: 20px;
+}
+
+.site-description {
+  color: $grey;
+  float: left;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 0;
+  margin-top: 6px;
+  max-width: 40%;
+}
 
 /***************
 MENU STYLING
 ***************/
 
 .js {
+  .nav-collapse {
+    position: relative;
+    max-height: none;
 
-	.nav-collapse {
-	  position: relative;
-	  max-height: none;
+    &.closed {
+      max-height: none;
+    }
 
-		&.closed {
-		  max-height: none; 
-		}
-
-		ul li a {
-			display: inline-block;
-		}
-	}
+    ul li a {
+      display: inline-block;
+    }
+  }
 }
 
 .nav-toggle {
   display: none;
 }
 
-
 /***************
 POST STYLING
 ***************/
 
 .post {
-	h1, h2, h3, h4, h5, h6, p, ul, ol, dl, .pageTitle {
-		// width: 75%;
-		float: none;
-		margin: 0 auto 2rem; 
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl,
+  .pageTitle {
+    // width: 75%;
+    float: none;
+    margin: 0 auto 2rem;
+  }
 
-	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-		margin: 1rem auto; 
-	}
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin: 1rem auto;
+  }
 
-	.pageTitle {
-		margin: 1rem auto 1em;
-	}
+  .pageTitle {
+    margin: 1rem auto 1em;
+  }
 
-	.tagContainer{
-		margin: 1rem auto;
-		display: flex;
-		justify-content: center;
-	  
-		.tag {
-		  text-align: center;
-		  min-width: 10%;
-		  font-style: italic;
-		}
-	  }
+  .tagContainer {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
 
-	.featuredImage {
-		position: relative;
-		margin-top: 2rem;
+    .tag {
+      text-align: center;
+      min-width: 10%;
+      font-style: italic;
+    }
+  }
 
-		&:before {
-			background: white;
-			content: "";
-			display: block;
-			width: 100%;
-			height: 4em;
-			position: absolute;
-			top: -2em;
-			left: 0;
-			transform: skewY(-2deg);
-			transform-origin: bottom left;
-		}
-	}
+  .featuredImage {
+    position: relative;
+    margin-top: 2rem;
 
-	.utterances {
-		max-width: 100rem;
-	}
+    &:before {
+      background: white;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 4em;
+      position: absolute;
+      top: -2em;
+      left: 0;
+      transform: skewY(-2deg);
+      transform-origin: bottom left;
+    }
+  }
+
+  .utterances {
+    max-width: 100rem;
+  }
 }
-
 
 /***************
 POST NAV STYLING
 ***************/
 
 .postNav {
-	.prev, .next {
-		width: 50%;
-	}
+  .prev,
+  .next {
+    width: 50%;
+  }
 }
-
-
-
 
 /***************
 FOOTER STYLES
 ***************/
 
 .footer {
-	&-links {
-		float: right;
-	}
+  &-links {
+    float: right;
+  }
 
-	.copy {
-		float: left;
-	}
+  .copy {
+    float: left;
+  }
 
-	.container {
-		padding: 1rem 0;
+  .container {
+    padding: 1rem 0;
     max-width: 800px;
-	}
+  }
 }
-
 
 /***************
 CONTACT PAGE STYLING
@@ -233,10 +296,10 @@ CONTACT PAGE STYLING
 }
 
 #contact {
-	form {
+  form {
     max-width: 48%;
     width: 48%;
     float: right;
     margin-right: 0;
-	}
+  }
 }

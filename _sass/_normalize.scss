@@ -8,6 +8,16 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
+@font-face {
+  font-family: "fontawesome";
+  src: url("../fonts/fontawesome.eot?lc16yo");
+  src: url("../fonts/fontawesome.eot?lc16yo#iefix") format("embedded-opentype"),
+    url("../fonts/fontawesome.ttf?lc16yo") format("truetype"),
+    url("../fonts/fontawesome.woff?lc16yo") format("woff"),
+    url("../fonts/fontawesome.svg?lc16yo#fontawesome") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 
 html {
   line-height: 1.15; /* 1 */
@@ -51,7 +61,8 @@ h1 {
 
 figcaption,
 figure,
-main { /* 1 */
+main {
+  /* 1 */
   display: block;
 }
 
@@ -133,7 +144,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: 'Lucida Sans'; /* 1 */
+  font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -241,7 +252,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -251,7 +263,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -423,4 +436,25 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/* custom css for scrollbar */
+/* Width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

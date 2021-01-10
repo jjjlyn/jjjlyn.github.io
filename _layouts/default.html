@@ -7,15 +7,17 @@
 {% include head.html %}
 
 <body>
-
+   
    {% include header.html %}
 
-   <div class="content">
-      <div class="container">
-         {{ content }}
+   <header class="site-header">
+      <div class="inner">
+         <h1 class="site-title"><a class="logo-text" href="{{ site.baseurl }}/">{{site.title}}</a></h1>
+            <p class="site-description">{{site.tagline}}</p>
       </div>
-   </div><!-- end .content -->
-
+   </header><!-- end .content -->
+   
+   {{ content }}
    {% include footer.html %}
    {% include scripts.html %}
 
