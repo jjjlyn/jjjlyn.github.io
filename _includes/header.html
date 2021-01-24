@@ -1,4 +1,4 @@
-<nav id="top" class="site-navigation">
+<!-- <nav id="top" class="site-navigation">
   <div class="inner">
      <button id="menu-toggle" aria-expanded="false">Menu</button>
      <div class="nav-menu">
@@ -15,4 +15,29 @@
         </ul>
      </div>
   </div>
-</nav>
+</nav> -->
+
+<header class="site-header">
+   <div class="inner">
+      <h1 class="site-title"><a href="{{ site.baseurl }}/">{{site.title}}</a></h1>
+         <!-- <p class="site-description">{{site.tagline}}</p> -->
+   </div>
+</header><!-- end .content -->
+<nav id="top" class="site-navigation">
+   <div class="inner">
+      <button id="menu-toggle" aria-expanded="false">Menu</button>
+      <div class="nav-menu">
+         <ul class="menu">
+            {% for link in site.navigation %}
+               {% assign current = nil %}
+               {% if page.url == link.url %}
+                  {% assign current = 'nav-current' %}
+               {% endif %}
+               <li class="{{ current }}">
+                  <a class="{{ current }}" href="{{ link.url }}">{{ link.title }}</a>
+               </li>
+            {% endfor %}   
+         </ul>
+      </div>
+   </div>
+ </nav>
