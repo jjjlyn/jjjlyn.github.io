@@ -103,8 +103,11 @@ pre {
  */
 
 a {
-  background-color: transparent; /* 1 */
-  -webkit-text-decoration-skip: objects; /* 2 */
+  // -webkit-text-decoration-skip: objects; /* 2 */
+  -webkit-transition: all 0.3s;
+  -moz-transition:    all 0.3s;
+  transition:         all 0.3s;
+  text-decoration: none;
 }
 
 /**
@@ -457,4 +460,16 @@ template {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+
+
+.screen-reader-text {
+  border: 0 none;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
 }

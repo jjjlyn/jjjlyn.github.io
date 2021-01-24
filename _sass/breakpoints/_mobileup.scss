@@ -25,17 +25,16 @@ html {
 // }
 
 body {
-  font-family: $lato;
+  font-family: "Nanum Gothic";
   line-height: 1.75;
   font-size: 112.5%; // 18px base font size
-  color: $black;
+  color: $white;
   overflow-x: hidden;
   margin: 0;
 
-  p,
-  ul {
-    margin: 0 0 2rem;
-  }
+  // p, ul {
+  //   margin: 0 0 2rem;
+  // }
 }
 
 // Text Selection Styling
@@ -50,11 +49,7 @@ body {
 }
 
 // Media Styling
-img,
-video,
-audio,
-iframe,
-object {
+img, video, audio, iframe, object {
   max-width: 100%;
 }
 
@@ -403,7 +398,7 @@ FOOTER STYLING
   clear: both;
 
   .container {
-    border-top: 4px solid darken(white, 15%);
+    border-top: 2px solid white;
     padding-top: 0.5em;
     max-width: 90%;
   }

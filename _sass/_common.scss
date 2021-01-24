@@ -39,12 +39,12 @@
 	}
 } 
 
-.prev {
-	float: left;
-	text-align: left;
+.square {
+	padding: 18px 16px;
+	text-align: center;
+	text-decoration: none;
+	&:hover {
+		color: limegreen;
+	}
 }
 
-.next {
-	float: right;
-	text-align: right;
-}

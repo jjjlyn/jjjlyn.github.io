@@ -4,18 +4,19 @@ GLOBAL STYLES
 
 body {
   background-color: $primary-color;
-  color: black;
+  color: white;
   line-height: 1.8;
   word-spacing: 0.05em;
   font-size: 125%;
+  margin: 1.5em;
+  border: 1px solid white;
+  font-family: "Nanum Gothic";
 }
 
-// .container {
-//   max-width: 880px;
-//   margin-left: auto;
-//   margin-right: auto;
-//   padding: 0;
-// }
+.inner {
+  margin: 0 auto;
+  max-width: 1200px;
+}
 
 /***************
 HOMEPAGE STYLING
@@ -39,13 +40,7 @@ HOMEPAGE STYLING
 .site-header,
 .site-content,
 .site-footer {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.inner {
-  margin: 0 auto;
-  max-width: 1200px;
+  border-bottom: 1px solid white;
 }
 
 /**
@@ -53,21 +48,13 @@ HOMEPAGE STYLING
  * --------------------------------------------
  */
 
-.site-navigation {
-  background: lighten($primary-color, 4%);
-}
-
 .site-navigation .inner {
   position: relative;
 }
 
-.nav-menu {
-  padding-right: 60px;
-}
-
 .nav-menu ul {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -75,25 +62,19 @@ HOMEPAGE STYLING
 
 .nav-menu li {
   font-size: 16px;
+  font-family: Cambria;
   line-height: 1.5;
   padding: 16px 0;
   position: relative;
 }
 
 .nav-menu a {
-  border-left: 2px solid $tundora;
   color: $grey;
   display: block;
   font-weight: bold;
   letter-spacing: 1px;
   padding: 0 15px;
   text-transform: uppercase;
-  text-decoration: none;
-}
-
-.nav-menu li:first-child > a {
-  border-left: 0;
-  padding-left: 0;
 }
 
 .nav-menu li:hover > a,
@@ -118,32 +99,26 @@ h1 {
  */
 
 .site-header {
-  padding-bottom: 75px;
-  padding-top: 70px;
+  padding-top: 1.5em;
+  padding-bottom: 1em;
 }
 
 .site-title {
+  font-family: serif;
   font-size: 48px;
-  float: left;
   line-height: 1;
-  margin-right: 20px;
   margin-bottom: 12px;
+  text-align: center;
   text-transform: uppercase;
 }
 
 .site-title a {
   color: $white;
   display: block;
-  text-decoration: none;
 }
 
 .site-title a:hover {
   color: lighten($lime, 11%);
-}
-
-.site-title .logo-text {
-  border-left: 10px solid $lime;
-  padding-left: 20px;
 }
 
 .site-description {
@@ -180,126 +155,264 @@ MENU STYLING
   display: none;
 }
 
-/***************
-POST STYLING
-***************/
+/**
+ * 3. Content
+ * ----------------------------------------------------------------------------
+ */
+ 
+ .site-main {
+  float: left;
+  width: 74.5%;
+  border-right: 1px solid white;
+}
+
+/**
+ * 3.1 Posts and Pages
+ * ----------------------------------------------------------------------------
+ */
+
+.post-title a:hover {
+  color: $lime;
+}
 
 .post {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  dl,
-  .pageTitle {
-    // width: 75%;
-    float: none;
-    margin: 0 auto 2rem;
-  }
-
-  h1,
-  .h1,
-  h2,
-  .h2,
-  h3,
-  .h3,
-  h4,
-  .h4,
-  h5,
-  .h5,
-  h6,
-  .h6 {
-    margin: 1rem auto;
-  }
-
-  .pageTitle {
-    margin: 1rem auto 1em;
-  }
-
-  .tagContainer {
-    margin: 1rem auto;
-    display: flex;
-    justify-content: center;
-
-    .tag {
-      text-align: center;
-      min-width: 10%;
-      font-style: italic;
-    }
-  }
-
-  .featuredImage {
-    position: relative;
-    margin-top: 2rem;
-
-    &:before {
-      background: white;
-      content: "";
-      display: block;
-      width: 100%;
-      height: 4em;
-      position: absolute;
-      top: -2em;
-      left: 0;
-      transform: skewY(-2deg);
-      transform-origin: bottom left;
-    }
-  }
-
-  .utterances {
-    max-width: 100rem;
-  }
+  padding: 16px 24px;
+  border-bottom: 1px solid white;
 }
 
-/***************
-POST NAV STYLING
-***************/
-
-.postNav {
-  .prev,
-  .next {
-    width: 50%;
-  }
+.post-tag {
+  text-align: center;
+  min-width: 10%;
+  font-style: italic;
 }
 
-/***************
-FOOTER STYLES
-***************/
-
-.footer {
-  &-links {
-    float: right;
-  }
-
-  .copy {
-    float: left;
-  }
-
-  .container {
-    padding: 1rem 0;
-    max-width: 800px;
-  }
+.post-tag-wrap {
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
 }
 
-/***************
-CONTACT PAGE STYLING
-***************/
+.sidebar {
+  float: right;
+  font-size: 16px;
+  margin-bottom: 2rem;
+  width: 25%;
+}
 
-.contactContent {
-  max-width: 48%;
-  margin-right: 2%;
+.entry-header {
+  margin-bottom: 40px;
+}
+
+.entry-header-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.entry-title {
+  clear: both;
   float: left;
+  font-size: 32px;
+  word-break: keep-all;
 }
 
-#contact {
-  form {
-    max-width: 48%;
-    width: 48%;
-    float: right;
-    margin-right: 0;
-  }
+.entry-title a {
+  color: white;
 }
+
+.entry-title a:hover {
+  color: limegreen;
+}
+
+.entry-meta {
+  font-size: 12px;
+  float: left;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: lighten($tundora, 40%);
+}
+
+.entry-content {
+  margin: 0 auto;
+  max-width: 740px;
+  font-size: 16px;
+}
+
+.entry-footer {
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+.tag-links a {
+  color: $tundora;
+  background-color: $light-yellow;
+  margin: 4px;
+  padding: 4px 12px;
+  font-weight: bold;
+}
+
+.tag-links a:hover {
+  background-color: darken(limegreen, 10%);
+  color: white;
+}
+
+/**
+ * 3.2 Comments
+ * ----------------------------------------------------------------------------
+ */
+
+
+
+/**
+ * 3.3 Post/Paging Navigation
+ * ----------------------------------------------------------------------------
+ */
+
+.pagination {
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: Cochin;
+  text-transform: uppercase;
+  padding: 16px 60px;
+  position: relative;
+}
+
+.newer-posts,
+.older-posts {
+  color: $black;
+  position: absolute;
+  top: 0;
+}
+
+.newer-posts {
+  left: 0;
+}
+
+.older-posts {
+  right: 0;
+}
+
+/**
+ * 4. Site Footer
+ * ----------------------------------------------------------------------------
+ */
+
+.site-footer .inner {
+  position: relative;
+}
+
+.social-links {
+  padding: 32px 24px;
+}
+
+.social-links a {
+  float: left;
+  margin: 0 4px 4px 0;
+}
+
+.site-info {
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  color: lighten($tundora, 40%);
+
+  a {
+    color: limegreen;
+    
+    &:hover {
+      color: lighten(limegreen, 20%);
+    }
+
+    &.top-link {
+      color: white;
+
+      &:hover {
+        color: limegreen;
+      }
+    }
+  }
+
+}
+
+.site-info .top-link {
+  margin: 0;
+  position: absolute;
+  right: 16px;
+  top: 24px;
+}
+
+
+
+/**
+ * 5. Widgets
+ * ----------------------------------------------------------------------------
+ */
+
+.widget {
+  font-family: "Nanum Gothic";
+  padding: 16px 16px;
+  word-break: keep-all;
+}
+
+.widget:first-child {
+  padding-top: 16px;
+}
+
+.widget-title {
+  color: lighten($tundora, 40%);
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.widget-recent-posts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.widget-recent-posts li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.widget-recent-posts a {
+  color: $white;
+}
+
+.widget-recent-posts a:hover {
+  color: limegreen;
+}
+
+.widget-recent-posts span {
+  color: lighten($tundora, 40%);
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.widget-tags a {
+  background-color: $light-yellow;
+  color: $tundora;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 2px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+
+.widget-tags a:hover {
+  background-color: darken(limegreen, 10%);
+  color: white;
+}
+
+
