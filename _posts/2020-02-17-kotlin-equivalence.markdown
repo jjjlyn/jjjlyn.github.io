@@ -6,8 +6,11 @@ date:   2020-02-17
 tags: [kotlin]
 ---
 
+<!-- more -->
+
 ## JAVA
 자바는 primitive type을 비교할 때는 `==`를 사용하여 value 속성이 **동등** 한지 비교할 수 있다. 
+
 
 ```java
 public static void main(String[] args){

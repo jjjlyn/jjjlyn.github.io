@@ -6,10 +6,14 @@ comments: true
 external-url:
 tags: [dart, flutter]
 ---
+
+<!-- more -->
+
 <br>
 <span style="font-weight:bold; font-size:3em; font-family: Georgia;">F</span>lutter에도 Android의 <span style="color:#fc054f; ">Collapse Toolbar Layout</span>과 비슷한 기능을 하는 위젯이 있다. <span style="color:#fc054f; ">Silver App Bar</span>가 되시겠다.
 안드로이드에서는 `wrap_content`로 레이아웃의 `weight`, `height`을 주면 그 사이즈만큼 유동적으로 늘어나거나 줄어든다.<br><br>
 안드로이드에서 <span style="color:#fc054f; ">Collapse Toolbar Layout</span>을 쓰면 이렇다. (안드로이드가 주가 아니니 xml의 앞과 뒤 생략)
+
 
 ```xml
 <com.google.android.material.appbar.SubtitleCollapsingToolbarLayout

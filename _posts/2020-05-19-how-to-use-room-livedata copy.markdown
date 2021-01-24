@@ -8,9 +8,11 @@ tags: [kotlin]
 ---
 
 <br>
-**Room Database**로부터 Livedata를 호출하는 일은 자주 발생한다. View(Activity 혹은 Fragment)에서 변경되는 데이터<br>
-**(i.e. DatePickerDialog에서 선택한 날짜, Spinner에서 선택한 값 등)**<br>
+Room Database로부터 Livedata를 호출하는 일은 자주 발생한다. View(Activity 혹은 Fragment)에서 변경되는 데이터<br>
+(i.e. DatePickerDialog에서 선택한 날짜, Spinner에서 선택한 값 등)<br>
 를 LiveData 호출하는 메서드의 매개변수로 전달하고 싶을 때가 있다. 
+
+<!-- more -->
 
 이럴 때 View에서 ViewModel에 선언된 메서드로 직접 파라미터 값을 넘기는 방법
 

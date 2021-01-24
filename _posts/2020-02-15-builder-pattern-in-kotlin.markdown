@@ -7,6 +7,8 @@ external-url:
 tags: [kotlin]
 ---
 
+<!-- more -->
+
 
 ```kotlin
 fun main() {
